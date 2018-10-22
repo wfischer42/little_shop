@@ -1,4 +1,4 @@
-
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/wfischer42/little_shop.svg?columns=all)](https://waffle.io/wfischer42/little_shop)
 
 # Little Shop of Orders, v2
 

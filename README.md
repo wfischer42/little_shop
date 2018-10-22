@@ -59,7 +59,7 @@ Disabled content should also be restricted from showing up in the statistics pag
 ### Navigation
 
 ```
-[ ] done
+1. [ ] done
 
 As a visitor
 I see a navigation bar
@@ -74,7 +74,7 @@ Next to the shopping cart link I see a count of the items in my cart
 ```
 
 ```
-[ ] done
+2. [ ] done
 
 As a registered user
 I see the same links as a visitor
@@ -88,7 +88,7 @@ I also see text that says "Logged in as Ian Douglas" (or whatever my name is)
 ```
 
 ```
-[ ] done
+3. [ ] done
 
 As a merchant user
 I see the same links as a registered user
@@ -97,7 +97,7 @@ Plus the following links
 ```
 
 ```
-[ ] done
+4. [ ] done
 
 As an admin user
 I see the same links as a registered user
@@ -109,7 +109,7 @@ Plus the following links
 ### "User" CRUD
 
 ```
-[ ] done
+5. [ ] done
 
 As a visitor
 When I click on the 'register' link in the nav bar
@@ -132,7 +132,7 @@ I see a flash message indicating that I am now registered and logged in
 ```
 
 ```
-[ ] done
+6. [ ] done
 
 As a visitor
 When I visit the user registration page
@@ -145,7 +145,7 @@ I see a flash message telling me the email address is already in use
 ```
 
 ```
-[ ] done
+7. [ ] done
 
 As a registered user, merchant, or admin
 When I visit my own profile page
@@ -157,7 +157,7 @@ Then I also see a link to my orders page ("/orders")
 ```
 
 ```
-[ ] done
+8. [ ] done
 
 As a registered user, merchant, or admin
 When I visit my profile page
@@ -174,7 +174,7 @@ And I see my updated information
 ```
 
 ```
-[ ] done
+9. [ ] done
 
 As a registered user, merchant, or admin
 When I attempt to edit my profile data
@@ -187,7 +187,7 @@ And I see a flash message telling me that email address is already in use
 ```
 
 ```
-[ ] done
+10. [ ] done
 
 As an admin user
 When I visit the user index page ("/users")
@@ -198,7 +198,7 @@ I see an "enable" button next to any users whose accounts are disabled
 ```
 
 ```
-[ ] done
+11. [ ] done
 
 As an admin user
 When I visit the user index page
@@ -210,7 +210,7 @@ This user cannot log in
 ```
 
 ```
-[ ] done
+12. [ ] done
 
 As an admin user
 When I visit the user index page
@@ -222,7 +222,7 @@ This user can now log in
 ```
 
 ```
-[ ] done
+13. [ ] done
 
 As an admin user
 When I visit the user index page
@@ -235,7 +235,7 @@ And I see a link to edit their profile data
 ```
 
 ```
-[ ] done
+14. [ ] done
 
 As an admin user
 When I visit a user's profile page ("/users/5")
@@ -245,7 +245,7 @@ Except I am returned to the show page path of "/users/5" when I am finished
 ```
 
 ```
-[ ] done
+15. [ ] done
 
 As an admin user
 When I visit a user's profile page
@@ -258,7 +258,7 @@ And I only see that user's orders
 ### "Session" CRUD
 
 ```
-[ ] done
+16. [ ] done
 
 As a visitor
 When I visit the login path
@@ -269,7 +269,7 @@ And I see a flash message that I am logged in
 ```
 
 ```
-[ ] done
+17. [ ] done
 
 As a registered user, merchant, or admin
 When I visit the login path
@@ -278,7 +278,7 @@ And I see a flash message that tells me I am already logged in
 ```
 
 ```
-[ ] done
+18. [ ] done
 
 As a registered user, merchant, or admin
 When I visit the login path
@@ -287,7 +287,7 @@ And I see a flash message that tells me I am already logged in
 ```
 
 ```
-[ ] done
+19. [ ] done
 
 As a registered user, merchant, or admin
 When I visit the logout path
@@ -300,7 +300,7 @@ Any items I had in my shopping cart are deleted
 ### "Merchant" CRUD
 
 ```
-[ ] done
+20. [ ] done
 
 As a merchant user
 When I visit my dashboard ("/dashboard)
@@ -309,7 +309,7 @@ Then I also see a link to my merchant orders ("/dashboard/orders")
 ```
 
 ```
-[ ] done
+21. [ ] done
 
 As an admin user
 When I visit the merchants index page ("/merchants")
@@ -320,7 +320,7 @@ I see an "enable" button next to any merchants whose accounts are disabled
 ```
 
 ```
-[ ] done
+22. [ ] done
 
 As an admin user
 When I visit the merchant index page
@@ -332,7 +332,7 @@ This merchant cannot log in
 ```
 
 ```
-[ ] done
+23. [ ] done
 
 As an admin user
 When I visit the merchant index page
@@ -344,7 +344,7 @@ This merchant can now log in
 ```
 
 ```
-[ ] done
+24. [ ] done
 
 As an admin user
 When I visit the merchant index page
@@ -357,7 +357,7 @@ And I see a link to edit their profile data
 ```
 
 ```
-[ ] done
+25. [ ] done
 
 As an admin user
 When I visit a merchant's dashboard page ("/merchants/6")
@@ -367,7 +367,7 @@ Except I am returned to the show page path of "/merchants/6" when I am finished
 ```
 
 ```
-[ ] done
+26. [ ] done
 
 As an admin user
 When I visit a merchant's dashboard page
@@ -379,7 +379,7 @@ And I only see the orders containing items from this merchant
 ### "MerchantUsers" CRUD
 
 ```
-[ ] done
+27. [ ] done
 
 As an admin user
 When I visit a user's profile page ("/users/5")
@@ -391,7 +391,7 @@ The next time this user logs in they are now a merchant
 ```
 
 ```
-[ ] done
+28. [ ] done
 
 As an admin user
 When I visit a merchant's profile page ("/merchants/6")
@@ -403,7 +403,7 @@ The next time this user logs in they are now a merchant
 ```
 
 ```
-[ ] done
+29. [ ] done
 
 As an admin user
 If I visit a profile page for a user, but that user is a merchant
@@ -414,7 +414,7 @@ then I am redirected to "/merchants/7" and see their merchant dashboard page
 ```
 
 ```
-[ ] done
+30. [ ] done
 
 As an admin user
 If I visit a profile page for a merchant, but that merchant is a regular user
@@ -427,7 +427,7 @@ then I am redirected to "/users/8" and see their user profile page
 ### "Items" CRUD
 
 ```
-[ ] done
+31. [ ] done
 
 As a merchant
 When I visit my dashboard page ("/dashboard")
@@ -437,7 +437,7 @@ My URI route should be "/dashboard/items"
 ```
 
 ```
-[ ] done
+32. [ ] done
 
 As a merchant
 When I visit my items page
@@ -454,7 +454,7 @@ If the item is disabled, I see a button or link to enable the item
 ```
 
 ```
-[ ] done
+33. [ ] done
 
 As a merchant
 When I visit my items page
@@ -465,7 +465,7 @@ I see the item is now disabled
 ```
 
 ```
-[ ] done
+34. [ ] done
 
 As a merchant
 When I visit my items page
@@ -476,7 +476,7 @@ I see the item is now enabled
 ```
 
 ```
-[ ] done
+35. [ ] done
 
 As a merchant
 When I visit my items page
@@ -496,7 +496,7 @@ If I left the image field blank, I see a placeholder image for the thumbnail
 ```
 
 ```
-[ ] done
+36. [ ] done
 
 As a merchant
 When I try to add a new item
@@ -507,7 +507,7 @@ All fields are re-populated with my previous data
 ```
 
 ```
-[ ] done
+37. [ ] done
 
 As a merchant
 When I visit my items page
@@ -527,7 +527,7 @@ If I left the image field blank, I see a placeholder image for the thumbnail
 ```
 
 ```
-[ ] done
+38. [ ] done
 
 As a merchant
 When I try to edit an existing item
@@ -538,7 +538,7 @@ All fields are re-populated with my previous data
 ```
 
 ```
-[ ] done
+39. [ ] done
 
 As an admin user
 When I visit a merchant's profile page
@@ -551,7 +551,7 @@ All content rules still apply (eg, item name cannot be blank, etc)
 ```
 
 ```
-[ ] done
+40. [ ] done
 
 As any kind of user on the system
 I can visit the items catalog ("/items")
@@ -566,7 +566,7 @@ Each item's name and thumbnail image are links to that item's show page
 ```
 
 ```
-[ ] done
+41. [ ] done
 
 As any kind of user on the system
 When I visit an item's show page from the items catalog
@@ -585,7 +585,7 @@ I also see a link to add this item to my cart
 ### "Cart" CRUD
 
 ```
-[ ] done
+42. [ ] done
 
 As any kind of user on the system
 When I visit an item's show page from the items catalog
@@ -595,7 +595,7 @@ The navigation bar increments my cart counter
 ```
 
 ```
-[ ] done
+43. [ ] done
 
 As any kind of user on the system
 When I visit my cart ("/cart")
@@ -612,7 +612,7 @@ I also see a grand total of what everything in my cart will cost
 ```
 
 ```
-[ ] done
+44. [ ] done
 
 As any kind of user on the system
 When I visit my cart ("/cart")
@@ -623,7 +623,7 @@ The navigation bar shows 0 items in my cart
 ```
 
 ```
-[ ] done
+45. [ ] done
 
 As any kind of user on the system
 When I visit my cart
@@ -637,7 +637,7 @@ I see a button or link to decrement the count of items I want to purchase
 ```
 
 ```
-[ ] done
+46. [ ] done
 
 As a visitor
 When I visit my cart
@@ -647,7 +647,7 @@ The words "log in" is a link to the login page
 ```
 
 ```
-[ ] done
+47. [ ] done
 
 As a registered user, merchant, or admin
 When I visit my cart
@@ -657,7 +657,7 @@ I see a button or link indicating that I can check out
 ### "Order" CRUD
 
 ```
-[ ] done
+48. [ ] done
 
 As a registered user, merchant, or admin
 When I visit my cart
@@ -667,7 +667,7 @@ I am taken to my orders page ("/profile/orders")
 ```
 
 ```
-[ ] done
+49. [ ] done
 
 As a registered user, merchant, or admin
 When I visit my orders page
@@ -684,7 +684,7 @@ And I see that order has an updated status of "cancelled"
 ```
 
 ```
-[ ] done
+50. [ ] done
 
 As a merchant
 When I visit my dashboard
@@ -698,7 +698,7 @@ Each order will show the following information:
 ```
 
 ```
-[ ] done
+51. [ ] done
 
 As a merchant
 When I visit my merchant orders page
@@ -707,7 +707,7 @@ I am taken to that order's show page ("/orders/12")
 ```
 
 ```
-[ ] done
+52. [ ] done
 
 As a merchant
 When I visit an order show page
@@ -733,14 +733,14 @@ Instead I see a big red notice next to the item indicating I cannot fulfill this
 ```
 
 ```
-[ ] done
+53. [ ] done
 
 When all items in an order have been "fulfilled" by their merchants
 The order status changes from "pending" to "complete"
 ```
 
 ```
-[ ]  done
+54. [ ]  done
 
 As an admin
 When I visit the orders index page ("/orders")
@@ -755,7 +755,7 @@ Admins cannot reset an order back to pending or completed states
 ### Statistics
 
 ```
-[ ] done
+55. [ ] done
 
 As a merchant
 When I visit my dashboard, I see an area with statistics:
@@ -769,7 +769,7 @@ When I visit my dashboard, I see an area with statistics:
 ```
 
 ```
-[ ] done
+56. [ ] done
 
 As an admin user
 When I visit my dashboard, I see an area with statistics:
@@ -781,7 +781,7 @@ When I visit my dashboard, I see an area with statistics:
 ```
 
 ```
-[ ] done
+57. [ ] done
 
 As a registered user, merchant, or admin
 When I visit the items index page ("/items")
@@ -796,7 +796,7 @@ I see an area with statistics:
 ### Security
 
 ```
-[ ] done
+58. [ ] done
 
 As an admin user
 I should have basic CRUD functionality for all content
@@ -804,7 +804,7 @@ Except deleting content
 ```
 
 ```
-[ ] done
+59. [ ] done
 
 As a merchant user
 I can only view my own merchant dashboard
@@ -813,7 +813,7 @@ I can only add/edit/update and enable/disable my own items
 ```
 
 ```
-[ ] done
+60. [ ] done
 
 As a registered user (who is not an admin, but may be a merchant)
 I can only view my own dashboard
@@ -837,51 +837,4 @@ Each team will meet with an instructor at least two times before the project is 
 Each team will have a rubric uploaded to [https://github.com/turingschool/ruby-submissions](https://github.com/turingschool/ruby-submissions)
 
 
-### Feature Completeness
-
-4 - All user stories are complete and additional extension work was attempted.  
-3 - All user stories are complete.  
-2 - 75% of user stories are complete, but not all of them are fully implemented.  
-1 - Fewer than 75% of the user stories are complete.
-
-### MVC Responsibilities
-
-4 - Views only display data and do not make additional calls to the database; they may include branch logic. Controllers request all data from Models except `.all` or `.find` calls and only do `.create` and `.delete` methods for writing data. Models read/write all other data using branch logic or smaller methods.  
-3 - Views make some calls to the database for `.each` calls and branch logic. Controllers push almost all work to the Models for reading/writing. Models sufficiently process and retrieve data.  
-2 - Views contain logic that make significant additional calls to the database including Model class methods. Controllers do a signficant amount of processing of data that should exist at a model level. Models process data in a way that is ineffcient, or contains work that determins presentation logic (how data might get viewed).  
-1 - Views, Controllers, and Models do not have a clear sense of resonsibilities.
-
-### Routing and Namespacing
-
-4 - Routing limits exactly which routes should be exposed for the app and nothing more.  
-3 - Routing and namespacing are used properly for the scope of the app.  
-2 - Running `rake routes` shows some endpoints which do not have code implemented.  
-1 - Routing is not complete.
-
-### Testing
-
-4 - Very clear test-driven development. Test files are extremely well organized and nested and utilize `before(:each)` blocks for sharing test setups. 100% test coverage for features, and 100% of all model methods is tested.  
-3 - 98% or better test coverage for features, and all model methods are 100% tested.  
-2 - Many portions of code are missing tests.  
-1 - Testing is extremely poor, or not done.
-
-### User Experience and Styling/Layout
-
-4 - Extremely well styled and purposeful layout. Excellent color scheme and font usage. Easy to use and follow the application workflow. Utilizes additional tooling like SCSS.  
-3 - Added a purposeful styling pattern and HTML layout using `/app/views/application.html.erb` and `/app/assets/stylesheets/application.css`. User workflow is easy to use with links to reach all areas of the site.  
-2 - Styling is poor, or incomplete. Layout does not utilize good HTML patterns. User workflow has significant problems and URIs have to managed manually.  
-1 - Little or no styling or layout. User workflow is significantly problematic.
-
-### Authentication, Authorization
-
-4 - All areas of permitted use within the app are above and beyond what we have taught.  
-3 - Authentication and Authorization are implemented with clear responsibilities of each user type.  
-2 - Authentication or Authorization are not implemented well (perhaps some users could impact data that they should not be permitted to access or change).  
-1 - Authentication or Authorization was largely incomplete.
-
-### Documentation and Workflow
-
-4 - Team has built a robust README including screenshots of the app, clear explanation of what the app is used for. The team has additionally used a project tool like waffle.io that clearly shows an excellent workflow to be highly productive such as automating promotion/closing of stories as they are developed. PRs also include discussions between reviewers about the code.  
-3 - Team has a README that describes the application to a satisfactory level. Team has also utilized a project management tool to track their work.  
-2 - README is poor quality. Team has not utilized an effective project management tool to a productive level.  
-1 - No README file exists. Team has not implemented any project management tool of any kind.
+View the [Little Shop Rubric](LittleShopRubric.pdf)

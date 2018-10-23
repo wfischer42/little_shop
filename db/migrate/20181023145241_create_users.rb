@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.integer :zip_code
       t.string :email
       t.string :password_digest
-      t.integer :role
+      t.integer :role, default: 0
       t.boolean :active
 
       t.timestamps

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: a66f07ac24b26085b9a0d3ad4e8eed5670101748
+  revision: 42a51f9732a44805d02ee6295095f0e964f1706f
   branch: master
   specs:
     faker (1.9.1)
@@ -151,7 +151,7 @@ GEM
     rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
-    rspec-rails (3.8.0)
+    rspec-rails (3.8.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)

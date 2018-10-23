@@ -20,3 +20,5 @@
 
 # Ignore coverage reports
 /coverage
+
+.DS_Store

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :order do
-    user { nil }
     status { 1 }
-    total { "9.99" }
+    sequence :total { |n| (n + 0.01).to_s }
+    user
   end
 end

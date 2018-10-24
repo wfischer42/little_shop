@@ -18,5 +18,6 @@ require 'rails_helper'
     context 'Regular users do not appear' do
       subject {page}
       it {is_expected.to_not have_content(regular_users.first.name)}
+      it {save_and_open_page}
     end
   end

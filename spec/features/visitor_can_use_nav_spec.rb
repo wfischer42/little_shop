@@ -19,5 +19,10 @@ describe 'visitor can use nav links' do
     expect(current_path).to eq(merchants_path)
     expect(page).to have_content("All Merchants")
 
+    click_link "Cart"
+
+    expect(current_path).to eq(cart_path)
+    expect(page).to have_content("Your Cart")
+
   end
 end

@@ -1,1 +1,9 @@
 <h1>All Items<h1>
+
+  <div class="all_items">
+    <% @items.each do |item| %>
+      <div id="items<%= item.id %>" class="item">
+        <%= item.name %>
+      </div>
+    <%end%>
+  </div>

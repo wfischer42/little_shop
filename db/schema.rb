@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20181023215032) do
     t.integer "zip_code"
     t.string "email"
     t.string "password_digest"
-    t.integer "role", default: 0
+    t.integer "role"
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

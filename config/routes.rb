@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  resources :items, only: [:index]
+  resources :merchants, only: [:index]
+
+  root 'welcome#index'
+  get '/cart', to: 'cart_items#index'
+
 end

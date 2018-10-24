@@ -1,0 +1,13 @@
+<div class="user_info">
+  <div class="primary_info">
+    <ul>
+      <li> <%= @user.name %></li>
+      <li> <%= @user.email %></li>
+      <li> <%= @user.address %> <br><%= @user.city %>, <%= @user.state %>, <%= @user.zip_code %></li>
+    </ul>
+  </div>
+  <div class="stats">
+    <h1>Customer Sense:</h1>
+    <p><%= @user.created_at.year %></p>
+  </div>
+</div>

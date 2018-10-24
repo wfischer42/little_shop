@@ -10,7 +10,4 @@ RSpec.describe Item, type: :model do
   it{ is_expected.to belong_to(:merchant) }
   it{ is_expected.to have_many(:order_items) }
   it{ is_expected.to have_many(:orders).through(:order_items) }
-
-
-
 end

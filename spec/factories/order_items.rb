@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :order_item do
-    item { nil }
-    order { nil }
-    item_quantity { 1 }
-    item_price { "9.99" }
+    item
+    order
+    sequence :item_quantity { |n| n }
+    sequence :item_price { |n| n * 1.12 }
   end
 end

@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20181023215032) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"

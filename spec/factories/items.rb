@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    user {create(:user, role: "merchant") }
+    user { create(:user, role: "merchant") }
     sequence :name              { |n| "Item #{n}"}
     sequence :price             { |n| n * 1.01 }
     sequence :inventory_count   { |n| n }

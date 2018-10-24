@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181023215032) do
+ActiveRecord::Schema.define(version: 20181024223648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 20181023215032) do
     t.decimal "price", precision: 15, scale: 2
     t.integer "inventory_count", default: 0
     t.text "description"
-    t.string "img_url"
+    t.string "img_url", default: "http://equip2clean.co.uk/media/catalog/product/cache/4/image/500x600/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/placeholder.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: true
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -55,9 +56,10 @@ ActiveRecord::Schema.define(version: 20181023215032) do
     t.string "email"
     t.string "password_digest"
     t.integer "role", default: 0
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_img_url", default: "https://www.psgdental.com/wp-content/uploads/2017/04/default-placeholder.jpg"
   end
 
   add_foreign_key "items", "users"

@@ -75,3 +75,41 @@ a {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
+
+.all_merchants_container {
+	display: grid;
+	width: 100%;
+	margin: 10px;
+	align-content: center; 
+}
+
+.all_merchants {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 33% 33% 33%;
+	align-content: center;
+	margin: auto;
+}
+
+.merchant {
+	display: grid;
+	width: 100%;
+	align-content: center;
+	text-align: center;
+}
+
+
+.merchant img{
+	width: 50%;
+
+}
+
+.user_img {
+	 margin: 0px;
+}
+
+.merchant a {
+	display: grid;
+	color: blue;
+	text-decoration: underline;
+}

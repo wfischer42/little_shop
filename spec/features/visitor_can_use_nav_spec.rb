@@ -1,28 +1,37 @@
 require 'rails_helper'
 
-describe 'visitor can use nav links' do
-  it 'navigates to correct links' do
-    visit root_path
+describe 'nav bar' do
 
-    click_link "Items"
+  before { visit root_path }
 
-    expect(current_path).to eq(items_path)
-    expect(page).to have_content("All Items")
+  context 'Items link' do
+    subject { click_link "Items"; page }
+    it { is_expected.to have_current_path(items_path) }
+    it { is_expected.to have_content("All Items") }
+    it { is_expected.to have_http_status(200) }
+  end
 
-    click_link "LittleShop"
+  context 'Merchants link' do
+    subject { click_link "Merchants"; page }
+    it { is_expected.to have_current_path(merchants_path) }
+    it { is_expected.to have_content("All Merchants") }
+    it { is_expected.to have_http_status(200) }
+  end
 
-    expect(current_path).to eq(root_path)
-    expect(page).to have_content("Welcome To LittleShop")
+  context 'Cart link' do
+    subject { click_link "Cart"; page }
+    it { is_expected.to have_current_path(cart_path) }
+    it { is_expected.to have_content("Your Cart") }
+    it { is_expected.to have_http_status(200) }
+  end
 
-    click_link "Merchants"
-
-    expect(current_path).to eq(merchants_path)
-    expect(page).to have_content("All Merchants")
-
-    click_link "Cart"
-
-    expect(current_path).to eq(cart_path)
-    expect(page).to have_content("Your Cart")
-
+  context 'Home' do
+    subject do
+      visit items_path
+      click_link "LittleShop"; page
+    end
+    it { is_expected.to have_current_path(root_path) }
+    it { is_expected.to have_content("Welcome To LittleShop") }
+    it { is_expected.to have_http_status(200) }
   end
 end

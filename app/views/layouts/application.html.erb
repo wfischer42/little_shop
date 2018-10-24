@@ -8,13 +8,18 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <nav>
-    <%= link_to "LittleShop", root_path %>
-    <%= link_to "Items", items_path %>
-    <%= link_to "Merchants", merchants_path %>
-    <%= link_to "Cart", cart_path %>
-
-  </nav>
+  <header class="header">
+    <nav>
+      <h1 class="logo">
+        <%= link_to "LittleShop", root_path %>
+      </h1>
+      <ul class="main-nav">
+        <a><%= link_to "Items", items_path %></a>
+        <a><%= link_to "Merchants", merchants_path %></a>
+        <a><%= link_to "Cart", cart_path %></a>
+      </ul>
+    </nav>
+  </header>
 
 
   <body>

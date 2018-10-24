@@ -25,6 +25,20 @@ describe 'nav bar' do
     it { is_expected.to have_http_status(200) }
   end
 
+  context 'Login Link' do
+    subject { click_link "Login"; page }
+    it { is_expected.to have_current_path(login_path) }
+    it { is_expected.to have_content("Log in to see more") }
+    it { is_expected.to have_http_status(200) }
+  end
+
+  context 'Register Link' do
+    subject { click_link "Register"; page }
+    it { is_expected.to have_current_path(register_path) }
+    it { is_expected.to have_content("Sign up to see more") }
+    it { is_expected.to have_http_status(200) }
+  end
+
   context 'Home' do
     subject do
       visit items_path

@@ -9,5 +9,15 @@ describe 'visitor can use nav links' do
     expect(current_path).to eq(items_path)
     expect(page).to have_content("All Items")
 
+    click_link "LittleShop"
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Welcome To LittleShop")
+
+    click_link "Merchants"
+
+    expect(current_path).to eq(merchants_path)
+    expect(page).to have_content("All Merchants")
+
   end
 end

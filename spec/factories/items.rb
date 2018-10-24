@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    user { nil }
+    user 
     name { "MyString" }
     price { "9.99" }
     inventory_count { 1 }

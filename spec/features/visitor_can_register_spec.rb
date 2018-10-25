@@ -20,6 +20,7 @@ describe 'User Register' do
       page
     end
     it { is_expected.to have_current_path(register_path) }
+
   end
 
   before(:each) do
@@ -41,6 +42,7 @@ describe 'User Register' do
     let(:user) { User.last }
 
     it { is_expected.to have_current_path(profile_path)}
+    it { is_expected.to have_content("Hello #{user.name}")}
     it { is_expected.to have_content(user.name) }
     it { is_expected.to have_content(user.address) }
     it { is_expected.to have_content(user.city) }
@@ -56,8 +58,8 @@ describe 'User Register' do
       click_on "Create User"; page
     end
 
-    it { is_expected.to have_current_path(register_path)}
-    it { is_expected.to have_content("Sign up to see more") }
+    it { is_expected.to have_current_path(register_path) }
+    it { is_expected.to have_content("Error") }
   end
 
   context 'Forgotten Field Fails' do
@@ -67,6 +69,6 @@ describe 'User Register' do
     end
 
     it { is_expected.to have_current_path(register_path)}
-    it { is_expected.to have_content("Sign up to see more") }
+    it { is_expected.to have_content("Error") }
   end
 end

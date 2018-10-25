@@ -10,7 +10,7 @@ describe 'nav bar' do
     it { is_expected.to have_content("All Items") }
     it { is_expected.to have_http_status(200) }
   end
-
+  
   context 'Merchants link' do
     subject { click_link "Merchants"; page }
     it { is_expected.to have_current_path(merchants_path) }

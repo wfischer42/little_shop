@@ -1,0 +1,21 @@
+<h1>All Merchants<h1>
+
+<div class="all_merchants_container">
+<div class="all_merchants">
+  <% @merchants.each do |merchant| %>
+    <div id="merchant_<%= merchant.id %>" class="merchant">
+    <div class="user_img">
+      <%=image_tag(merchant.user_img_url)%>
+    </div>
+      <%=link_to merchant.name, admin_merchant_path(merchant)%>
+      <% if merchant.active? %>
+        <%=button_to "Disable", { action: "update", id: merchant.id },
+                                  method: :put, data: { confirm: "Are you sure you?" } %>
+        <%else%>
+        <%= button_to "Enable", { action: "update", id: merchant.id },
+                                  method: :put, data: { confirm: "Are you sure?" } %>
+      <%end%>
+    </div>
+  <%end%>
+</div>
+</div>

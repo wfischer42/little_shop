@@ -7,12 +7,7 @@
     <div class="user_img">
       <%=image_tag(merchant.user_img_url)%>
     </div>
-      <%=link_to merchant.name, merchants_path%>
-      <% if merchant.active? %>
-        <%=link_to "Disable", merchants_path%>
-        <%else%>
-        <%= button_to "Enable", { :action => "new" }, :method => :get %>
-      <%end%>
+      <%=merchant.name%>
     </div>
   <%end%>
 </div>

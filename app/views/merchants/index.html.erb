@@ -10,6 +10,8 @@
       <%=link_to merchant.name, merchants_path%>
       <% if merchant.active? %>
         <%=link_to "Disable", merchants_path%>
+        <%else%>
+        <%= button_to "Enable", { :action => "new" }, :method => :get %>
       <%end%>
     </div>
   <%end%>

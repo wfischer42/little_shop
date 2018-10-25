@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
 
 def seed_user(role: :customer)
   User.create(name: Faker::Name.unique.name,
@@ -66,5 +65,3 @@ end
 100.times { seed_order }
 
 add_login_paths
-=======
->>>>>>> removing original seed data before Faker data is implemented

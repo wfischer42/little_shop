@@ -1,0 +1,9 @@
+<h1>All Users<h1>
+
+<div class="all_users">
+  <% @users.each do |user| %>
+    <div id="user_<%= user.id %>" class="user">
+      <%= user.name %>
+    </div>
+  <%end%>
+</div>

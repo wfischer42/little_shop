@@ -5,5 +5,5 @@ RSpec.describe Order, type: :model do
   it { is_expected.to have_many(:order_items) }
   it { is_expected.to have_many(:items).through(:order_items) }
   it { is_expected.to validate_presence_of(:status) }
-
+  it { expect(subject.status).to eq("pending")}
 end

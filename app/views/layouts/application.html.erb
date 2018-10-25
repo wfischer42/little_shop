@@ -13,13 +13,13 @@
       <h1 class="logo">
         <%= link_to "LittleShop", root_path %>
       </h1>
-      <ul class="main-nav">
-        <a><%= link_to "Items", items_path %></a>
-        <a><%= link_to "Merchants", merchants_path %></a>
-        <a><%= link_to "Cart", cart_path %></a>
-        <a><%= link_to "Login", login_path %></a>
-        <a><%= link_to "Register", register_path %></a>
-      </ul>
+      <div class="main-nav">
+        <%= link_to "Items", items_path %>
+        <%= link_to "Merchants", merchants_path %>
+        <%= link_to "Cart", cart_path %>
+        <%= link_to "Login", login_path %>
+        <%= link_to "Register", register_path %>
+      </div>
     </nav>
   </header>
 
@@ -29,6 +29,8 @@
       <%= content_tag :div, message, class: type %>
     <% end %>
 
+   <div id="main_container">
     <%= yield %>
+  </div>
   </body>
 </html>

@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   def current_user
     @user_lookup ||= User.find(session[:user_id])
   end
+
 end

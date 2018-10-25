@@ -17,43 +17,63 @@
 * {
 	box-sizing: border-box;
 }
+
+#main_container {
+	margin-top: 0px;
+	margin-left: 45px;
+	margin-right: 45px;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.6;
-	margin: 0;
+	margin: 0px;
 	min-height: 100vh;
+	background-color: #f4f4f4;
 }
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 
 a {
-  color: black;
-	text-decoration: none;
+  color: #d1d8de;
+  text-decoration: none;
+}
+
+a:hover {
+	color: #718daa;
 }
 
 .logo {
 	margin: 0;
-	font-size: 1.45em;
+	font-size: 2.45em;
 }
 
+.nav {
+	display: grid;
+	margin: 0px;
+
+}
 .main-nav {
-	margin-top: 5px;
-
+	display: grid;
+	grid-template-columns: 10% 10% 10% 10% 10% 10%;
+	background-color: #718daa91;
+	padding-bottom: 0px;
 }
-.logo a,
-.main-nav a {
-	padding: 10px 15px;
+
+.logo {
 	text-transform: uppercase;
-	text-align: center;
-	display: block;
+	margin-left: 45px;
+}
+
+
+.main-nav a {
+	padding: 5px;
+	text-transform: uppercase;
+	text-align: auto;
+	display: grid;
+	justify-self:center;
 }
 
 .main-nav a {
-	color: #34495e;
+	color: #d1d8de;
 	font-size: .99em;
 }
 
@@ -62,16 +82,55 @@ a {
 }
 
 
-
-.header {
+header {
 	padding-top: .5em;
-	padding-bottom: .5em;
-	border: 1px solid #a2a2a2;
-	background-color: #f4f4f4;
+	padding-bottom: 1em;
+	background-color: #273d52;
 	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	border-radius-bottom: 5px;
+}
+
+.all_merchants_container {
+	display: grid;
+	width: 100%;
+	margin: 10px;
+	align-content: center;
+}
+
+.all_merchants {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 33% 33% 33%;
+	align-content: center;
+	margin: auto;
+}
+
+.merchant {
+	display: grid;
+	width: stretch;
+	align-content: center;
+	text-align: center;
+	font-size: medium;
+	margin: 15px;
+}
+
+
+.merchant img{
+	width: 30%;
+	border-radius: 2px;
+	box-shadow: 0 0px 3px 1px rgba(0,0,0,0.5);
+
+}
+
+.user_img {
+	 margin: 0px;
+}
+
+.merchant a {
+	display: grid;
+	color:  #020000;
+	text-decoration: underline;
+	margin-left: 0px;
 }

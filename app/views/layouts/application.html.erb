@@ -24,7 +24,12 @@
   </header>
 
   <body>
-    <div id="main_container">
+
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message, class: type %>
+    <% end %>
+
+   <div id="main_container">
     <%= yield %>
   </div>
   </body>

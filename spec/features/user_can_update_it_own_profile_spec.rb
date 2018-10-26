@@ -41,4 +41,28 @@ describe 'user goes to profile page and updates it info' do
     expect(page).to have_content("Fakeville, Alabama, 35622")
 
   end
+
+  it 'should display an error if the user type thr wrong info' do
+
+    user = create(:user, email: "didfjslkd")
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit profile_path
+
+    click_on 'Update Profile'
+
+    fill_in :user_name, with: ""
+    fill_in :user_address, with: ""
+
+    click_on 'Update User'
+
+    expect(current_path).to eq(profile_edit_path)
+    expect(page).to have_content("Error")
+    expect(find_field("user_name").value).to eq(user.name)
+    expect(find_field("user_address").value).to eq(user.address)
+
+    user_again = User.find(user.id)
+    expect(user_again.name).to eq(user.name)
+  end
 end

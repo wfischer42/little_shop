@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_admin?
 
   def current_user
-    @user_lookup ||= User.find(session[:user_id])
+    @user_lookup ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def current_admin?

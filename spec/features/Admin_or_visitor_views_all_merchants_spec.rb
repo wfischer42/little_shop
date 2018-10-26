@@ -34,14 +34,14 @@ require 'rails_helper'
 
       before do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-        visit admin_merchants_path
+        visit merchants_path
       end
 
       context 'Can view all merchants' do
 
         subject { page }
 
-        it {is_expected.to have_current_path(admin_merchants_path)}
+        it {is_expected.to have_current_path(merchants_path)}
         it {is_expected.to have_selector(".merchant", count: merchants.length)}
         it {is_expected.to have_content(merchants.first.name)}
         it {is_expected.to have_content(merchants.last.name)}

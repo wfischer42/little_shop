@@ -38,4 +38,20 @@ RSpec.describe 'When an admin views the merchant index page' do
 
   end
 
+  it 'makes a merchant disabled buy clicking the disable button' do
+    @admin = create(:user, role: 2)
+    @merchant_1, @merchant_2, @merchant_3 = create_list(:user, 3, role: 1)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+    visit admin_merchants_path
+
+    within("#merchant_#{@merchant_1.id}") do
+      click_button("Disable")
+
+      expect(@merchant_1.active?).to eq(false)
+    end
+  end
+
+
 end

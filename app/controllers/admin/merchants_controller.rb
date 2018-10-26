@@ -9,8 +9,6 @@ class Admin::MerchantsController < Admin::BaseController
   end
 
   def update
-    @merchant = User.find(params[:id])
-    redirect_to admin_merchants_path
   end
 
 end

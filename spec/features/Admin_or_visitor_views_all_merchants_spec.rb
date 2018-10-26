@@ -53,15 +53,12 @@ require 'rails_helper'
         it {is_expected.to_not have_content(regular_users.last.name)}
       end
 
-      context 'Sees merchant names link to merchant profie pages' do
+      context 'Sees merchant names link to merchant profile pages' do
         subject { click_link merchants.first.name; page }
 
         it {is_expected.to have_current_path(admin_merchant_path(merchants.first))}
       end
 
-      context 'Sees enable button next to disabled merchants'do
-        subject { page }
-      end
     end
 
   end

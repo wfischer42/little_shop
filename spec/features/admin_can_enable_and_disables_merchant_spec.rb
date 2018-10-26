@@ -44,11 +44,14 @@ RSpec.describe 'When an admin views the merchant index page' do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit admin_merchants_path
+    visit merchants_path
 
     within("#merchant_#{merchant_1.id}") do
+      binding.pry
+
       click_button("Disable")
-binding.pry
+      binding.pry
+
       expect(merchant_1.active?).to eq(false)
     end
   end

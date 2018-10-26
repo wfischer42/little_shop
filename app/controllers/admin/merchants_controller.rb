@@ -9,6 +9,7 @@ class Admin::MerchantsController < Admin::BaseController
   end
 
   def update
+  
   end
 
 end

@@ -2,9 +2,14 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index]
   resources :merchants, only: [:index]
+  #
+  # namespace :admin do
+  #   resources :merchants, only: [:index, :show, :update, :create]
+  # end
 
-  namespace :admin do
-    resources :merchants, only: [:index, :show, :update, :create]
+  scope module: :admin, as: :admin do
+    resources :merchants, only: [:show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   root  'welcome#index'
@@ -15,5 +20,4 @@ Rails.application.routes.draw do
   post  '/login',     to: 'sessions#create'
   get   '/register',  to: 'users#new'
   post  '/register',  to: 'users#create'
-
 end

@@ -23,7 +23,7 @@ require 'rails_helper'
       end
 
       context 'Cannot view the admin merchant show page' do
-        subject { visit admin_merchants_path; page }
+        subject { visit admin_merchant_path(merchants.first); page }
 
         it {is_expected.to have_content "The page you were looking for doesn't exist (404)"}
       end
@@ -45,7 +45,7 @@ require 'rails_helper'
       end
 
       context 'Cannot view the admin merchant show page' do
-        subject { visit admin_merchants_path; page }
+        subject { visit admin_merchant_path(merchants.first); page }
 
         it {is_expected.to have_content "The page you were looking for doesn't exist (404)"}
       end

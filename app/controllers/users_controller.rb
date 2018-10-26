@@ -24,6 +24,18 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def update
+    @user = User.find(current_user.id)
+    @user.update(user_params)
+    if @user.save
+      flash[:success] = "User information Updated"
+      redirect_to profile_path
+    else
+      flash[:notice] = "Error"
+      render :edit
+    end 
+  end
+
   private
 
   def user_params

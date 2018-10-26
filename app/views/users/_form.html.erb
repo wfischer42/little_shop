@@ -1,5 +1,4 @@
-
-<%= form_for @user, :url => register_path do |f| %>
+<%= form_for @user, path do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :addresss %>
@@ -17,4 +16,4 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
   <%= f.submit %>
-<% end %>
+<% end  %>

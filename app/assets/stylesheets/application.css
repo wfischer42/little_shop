@@ -134,3 +134,26 @@ header {
 	text-decoration: underline;
 	margin-left: 0px;
 }
+
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.flex-container > div {
+  width: 100px;
+  text-align: left;
+  line-height: 75px;
+  font-size: 30px;
+	padding-left: 20px;
+}
+
+
+.item-img img {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0px 10px 1px rgba(0,0,0,0.5);
+	margin-top: 20px;
+}

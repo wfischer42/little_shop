@@ -40,6 +40,21 @@ describe 'User Sign in' do
     end
   end
 
+  context 'with valid admin credentials' do
+    before do
+      fill_in 'email', with: @admin.email
+      click_on 'Sign in'
+    end
+
+    subject { page }
+    it { is_expected.to have_current_path(dashboard_path) }
+
+    describe 'current user' do
+      subject { page.driver.request.session[:user_id] }
+      it { is_expected.to eq(@admin.id)}
+    end
+  end
+
   context 'with invalid credentials' do
     let(:warning) { "The email address or password you entered was incorrect" }
     before do

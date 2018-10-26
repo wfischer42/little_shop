@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
   private
     def home_path(user)
       return profile_path if user.customer?
-      return dashboard_path if user.merchant?
-      return admin_dashboard_path if user.admin?
+      return dashboard_path if user.merchant? || user.admin?
     end
 end

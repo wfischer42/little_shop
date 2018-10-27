@@ -12,10 +12,10 @@
       Inactive
       <%end%></h3>
     <%=link_to 'Edit Profile Information',
-                              { controller: 'admin/users',
+                              { controller: 'admin/merchants',
                                 action: 'edit',
                                 id: @merchant.id },
-                                method: :patch %>
+                                method: :get %>
     <%=button_to 'Downgrade to Customer Only Account',
                               { controller: 'admin/merchants',
                                 action: 'update',

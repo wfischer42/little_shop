@@ -1,0 +1,41 @@
+<div class="page">
+
+  <div class="stats">
+    <h3>About our Comedians</h3>
+    <div id="stats_section">
+      <div id="about_title">General Information:</div>
+      <li><b>Average age:</b> <%=(@comedians.average(:age)).round%></li>
+        <li><b>Total specials listed:</b> <%=@specials.count%></li>
+         <li><b>Average run time of specials:</b> <%=(@specials.average(:run_time)).round %> minutes</li>
+    </div>
+    <div id="stat_section">
+      <div id="about_title">Comedian birthplaces:</div>
+        <%cities = @comedians.distinct.pluck(:city)%>
+        <%cities.each do |c| %>
+        <li><b><%=c%></b></br>
+          Home to: <b><%=@comedians.where(city: c).pluck(:name).flatten.join(", ")%></b></li>
+        <%end%></p>
+    </div>
+  </div>
+
+  <div class="comedian_content">
+    <% @comedians.each do |comedian| %>
+    <div id="comedian_info">
+      <div id="comedian_name"><b><%=comedian.name%></b></div>
+      <li>Age: <%=comedian.age%></li>
+      <li>Birthplace: <%=comedian.city%></br></li>
+      <li>Specials Listed:<%=comedian.specials.count%></li>
+    </div>
+    <div id=individual_special>
+      <% comedian.specials.each do |s| %>
+      <img src="<%= s.image_url %>" class="img"></br>
+        <div id="specials_info">
+          <p><b><%= s.title %></b></br>
+          Run Time: <%=s.run_time%> minutes</br></p>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+</div>

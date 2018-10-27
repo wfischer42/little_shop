@@ -65,4 +65,23 @@ describe 'user goes to profile page and updates it info' do
     user_again = User.find(user.id)
     expect(user_again.name).to eq(user.name)
   end
+
+  it 'should invalidate an user if it use a email thats in the database' do
+    user_1 = create(:user, email: 'elchiguire@bipolar.com')
+    user_2 = create(:user)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_2)
+
+    visit profile_path
+
+    click_on 'Update Profile'
+
+    fill_in :user_email, with: user_1.email
+
+    click_on "Update User"
+
+    expect(current_path).to eq(profile_edit_path)
+    expect(page).to have_content("Email address is already in use")
+
+  end
 end

@@ -1,3 +1,20 @@
-<h1>Merchant Show Page for Admins</h1>
-
-<%=@merchant.active?%>
+<div id="merchant_<%= @merchant.id %>" class="merchant">
+  <div class="user_img">
+  <%=image_tag(@merchant.user_img_url)%>
+  </div>
+  <div class="merchant_info">
+    <h1><%=@merchant.name%></h1>
+    <h3>Status: <%if @merchant.active?%>
+      active
+      <%else%>
+      inactive
+      <%end%></h3>
+  <% if current_admin? %>
+      <%=button_to 'Downgrade to Customer Only Account', { controller: 'admin/merchants',
+                                action: 'update',
+                                id: @merchant.id,
+                                attribute: 'role'},
+                                method: :patch,
+                                data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>

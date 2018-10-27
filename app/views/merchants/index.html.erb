@@ -12,12 +12,14 @@
         <% if merchant.active? %>
           <%=button_to 'Disable', { controller: 'admin/merchants',
                                     action: 'update',
+                                    attribute: 'active',
                                     id: merchant.id },
                                     method: :patch,
                                     data: { confirm: 'Are you sure?' } %>
         <% else %>
           <%= button_to 'Enable', { controller: 'admin/merchants',
                                     action: 'update',
+                                    attribute: 'active',
                                     id: merchant.id },
                                     method: :patch,
                                     data: { confirm: 'Are you sure?' } %>

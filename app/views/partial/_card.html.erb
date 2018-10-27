@@ -1,11 +1,11 @@
-<div class="all_card_container">
+
 <div class="all_stuff">
-  <% @card_data.each do |card| %>
+  <% card_data.each do |card| %>
     <div id="card<%= card.id %>" class="card">
 
       <% if card.class == Item %>
         <div class="img_url">
-          <%=image_tag(card.img_url) %>
+          <img src="card.img_url" alt="item_img">  
         </div>
         <div class="card_info">
           <%= link_to "#{card.name}", item_path(card) %>
@@ -65,5 +65,4 @@
     <% end %>
     </div>
   <%end%>
-</div>
 </div>

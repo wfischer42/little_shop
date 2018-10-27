@@ -11,15 +11,13 @@ describe 'User visits Item index' do
     expect(page).to have_content(@item_1.name)
     expect(page).to have_content(@item_1.price)
     expect(page).to have_content(@item_1.inventory_count)
-    expect(page).to have_xpath(@item_1.img_url)
+    expect(page).to have_css(".img_url")
     expect(page).to have_content(@item_1.merchant.name)
 
     expect(page).to have_content(@item_2.name)
-    expect(page).to have_xpath(@item_2.img_url)
     expect(page).to have_content(@item_2.merchant.name)
 
     expect(page).to have_content(@item_6.name)
-    expect(page).to have_xpath(@item_6.img_url)
     expect(page).to have_content(@item_6.merchant.name)
   end
 end

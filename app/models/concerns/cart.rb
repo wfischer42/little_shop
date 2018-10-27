@@ -29,7 +29,7 @@ class Cart
     result
   end
 
-  def count_items
+  def cart_count
     cart_items = @data
     cart_items.values.sum
   end

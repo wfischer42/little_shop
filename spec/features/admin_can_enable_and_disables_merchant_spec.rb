@@ -55,7 +55,7 @@ RSpec.describe 'When an admin views the merchant index page' do
       expect(page).to have_button("Enable")
       expect(merchant.active?).to eq(false)
     end
-
+    expect(page).to have_content("#{merchant.name} is now inactive.")
   end
 
   it 'makes a merchant enabled buy clicking the enable button' do
@@ -76,7 +76,7 @@ RSpec.describe 'When an admin views the merchant index page' do
       expect(page).to have_button("Disable")
       expect(merchant.active?).to eq(true)
     end
-
+    expect(page).to have_content("#{merchant.name} is now active.")
   end
 
 

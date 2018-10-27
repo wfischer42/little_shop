@@ -6,6 +6,7 @@
       <li> <%= @user.address %> <br><%= @user.city %>, <%= @user.state %>, <%= @user.zip_code %></li>
     </ul>
   </div>
+  <%= link_to "View Orders", profile_orders_path, id: "order_page_link" %>
   <div class="stats">
     <h1>Customer Sense:</h1>
     <p><%= @user.created_at.year %></p>

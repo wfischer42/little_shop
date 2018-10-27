@@ -4,6 +4,11 @@ class Admin::MerchantsController < Admin::BaseController
     @merchant = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+    @url = admin_merchant_path(@user)
+  end
+
   def update
     user = User.find(params[:id])
     if params[:attribute] == 'active'

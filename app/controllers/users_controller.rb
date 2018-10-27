@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
+    @url = profile_edit_path
   end
 
   def update

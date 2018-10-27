@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   post  '/login',     to: 'sessions#create'
   get   '/register',  to: 'users#new'
   post  '/register',  to: 'users#create'
+  post '/cart_items', to: 'cart_items#create'
+
 end

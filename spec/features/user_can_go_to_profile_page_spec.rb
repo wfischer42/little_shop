@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User (customer,merchant,admin) and can see profile' do
+describe 'User (customer,merchant,admin) can see profile' do
 
   before do
     @user_1 = create(:user)
@@ -28,10 +28,8 @@ describe 'User (customer,merchant,admin) and can see profile' do
   end
 
   context 'Links to Order show page' do
-    subject {click_on ".order_page_link"; page}
-
-    xit { is_expected.to have_current_path(user_orders_path(@user_1))}
-    xit { is_expected.to have_http_status(200)}
+    subject {click_on "View Orders"; page}
+    it { is_expected.to have_current_path(profile_orders_path)}
   end
 
 end

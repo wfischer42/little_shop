@@ -29,6 +29,9 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:success] = "User information Updated"
       redirect_to profile_path
+    elsif User.where.not(id: @user.id).exists?(email: user_params[:email])
+      flash[:notice] = "Email address is already in use"
+      redirect_to profile_edit_path
     else
       flash[:notice] = "Error"
       redirect_to profile_edit_path

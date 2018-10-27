@@ -78,6 +78,4 @@ RSpec.describe 'When an admin views the merchant index page' do
     end
     expect(page).to have_content("#{merchant.name} is now active.")
   end
-
-
 end

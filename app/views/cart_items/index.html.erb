@@ -1,8 +1,25 @@
 <h1>Your Cart</h1>
 
+<%= link_to "Empty Cart", cart_items_path, method: :delete, data: {confirm: "Are you sure?"} %>
 
+<table>
+  <tr>
+    <th>Picture</th>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Sold By</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+  </tr>
 <% @cart_items.each do |ca| %>
-  Item: <%= ca.name %>
-  Price: $<%= ca.price %>
-  <br>
-<% end %>
+  <tr>
+    <td> <img src="<%= ca.img_url %>", class="pic"></td>
+    <td><%= ca.name %></td>
+    <td><%= number_to_currency(ca.price) %></td>
+    <td><%= ca.merchant.name %></td>
+    <td class="quantity-<%= ca.id %>"><%= ca.quant %></td>
+    <td class="sub-<%= ca.id %>"><%= number_to_currency(ca.sub(ca)) %></td>
+  </tr>
+  <% end %>
+</table>
+Grand Total: <%= number_to_currency(@cart.cart_total) %>

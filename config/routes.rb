@@ -45,4 +45,5 @@ Rails.application.routes.draw do
   post  '/login',            to: 'sessions#create'
   get   '/cart',             to: 'cart_items#index'
   post  '/cart_items',       to: 'cart_items#create'
+  delete '/cart_items', to: 'cart_items#destroy'
 end

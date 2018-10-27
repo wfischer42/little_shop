@@ -23,5 +23,7 @@ Rails.application.routes.draw do
   get   '/register',  to: 'users#new'
   post  '/register',  to: 'users#create'
   post '/cart_items', to: 'cart_items#create'
+  delete '/cart_items', to: 'cart_items#destroy'
+
 
 end

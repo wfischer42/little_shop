@@ -21,10 +21,10 @@ class Cart
     end
   end
 
-  def total
-    cart_items = items
-    result = cart_items.inject(0) do |sum, cart_item|
-      sum + cart_item.subtotal(cart_item)
+  def cart_total
+    cis = items
+    result = cis.inject(0) do |sum, cis|
+      sum + cis.sub(cis)
     end
     result
   end
@@ -41,7 +41,8 @@ class Cart
     end
   end
 
-
-
+  def poop_on
+    @data = Hash.new()
+  end
 
 end

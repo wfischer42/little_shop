@@ -41,8 +41,6 @@ class Cart
     end
   end
 
-  def poop_on
-    @data = Hash.new()
-  end
+
 
 end

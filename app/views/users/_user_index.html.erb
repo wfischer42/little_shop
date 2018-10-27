@@ -1,0 +1,31 @@
+<div class="all_users_container">
+  <div class="users">
+    <% @users.each do |user| %>
+    <div id="user_<%= user.id %>" class="user">
+      <div class="user_img">
+        <%=image_tag(user.user_img_url)%>
+      </div>
+        <% if current_admin? %>
+          <%=link_to user.name, admin_merchant_path(user)%>
+          <% if user.active? %>
+            <%=button_to 'Disable', { controller: @controller,
+                                    action: 'update',
+                                    attribute: 'active',
+                                    id: user.id },
+                                    method: :patch,
+                                    data: { confirm: 'Are you sure?' } %>
+          <% else %>
+            <%= button_to 'Enable', { controller: @controller,
+                                    action: 'update',
+                                    attribute: 'active',
+                                    id: user.id },
+                                    method: :patch,
+                                    data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        <% else %>
+        <%= user.name%>
+        <% end %>
+    </div>
+  <%end%>
+  </div>
+</div>

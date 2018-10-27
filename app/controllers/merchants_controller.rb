@@ -7,7 +7,7 @@ class MerchantsController < ApplicationController
 
     # TODO: Add admin branching logic to view
 
-    @merchants = User.where(role: "merchant").order(:name)
+    @users = User.where(role: "merchant").order(:name)
+    @controller = 'admin/merchants'
   end
-
 end

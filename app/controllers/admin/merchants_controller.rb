@@ -1,7 +1,8 @@
 class Admin::MerchantsController < Admin::BaseController
 
   def show
-    @merchant = User.find(params[:id])
+    @user = User.find(params[:id])
+    @controller = 'admin/merchants'
   end
 
   def edit

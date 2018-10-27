@@ -8,7 +8,7 @@ describe 'Admin goes to merchant profile page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     visit admin_merchant_path(merchant)
 
-    click_button("Downgrade to Customer Only Account")
+    click_button("Downgrade Account")
     merchant_rename = User.find(merchant.id)
     expect(merchant_rename.role).to eq('customer')
   end
@@ -47,6 +47,7 @@ describe 'Admin goes to merchant profile page' do
       click_button("Update User")
 
       merchant_rename = User.find(merchant.id)
+
       expect(merchant_rename.name).to eq("CHANGE NAME")
       expect(merchant_rename.address).to eq("123 Main Street")
       expect(merchant_rename.city).to eq("Fakeville")

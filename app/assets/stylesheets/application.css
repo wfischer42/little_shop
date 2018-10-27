@@ -134,3 +134,64 @@ header {
 	text-decoration: underline;
 	margin-left: 0px;
 }
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.flex-container > div {
+  width: 100px;
+  text-align: left;
+  line-height: 75px;
+  font-size: 30px;
+	padding-left: 20px;
+}
+
+
+.item-img img {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0px 10px 1px rgba(0,0,0,0.5);
+	margin-top: 20px;
+}
+
+.all_merchants_container {
+	display: grid;
+	width: 100%;
+	margin: 10px;
+	align-content: center;
+}
+
+.all_merchants {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 33% 33% 33%;
+	align-content: center;
+	margin: auto;
+}
+
+.merchant {
+	display: grid;
+	width: 100%;
+	align-content: center;
+	text-align: center;
+}
+
+
+.merchant img{
+	width: 50%;
+
+}
+
+.user_img {
+	 margin: 0px;
+}
+
+.merchant a {
+	display: grid;
+	color: blue;
+	text-decoration: underline;
+
+}

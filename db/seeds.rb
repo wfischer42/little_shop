@@ -41,15 +41,9 @@ def seed_order
 end
 
 def add_login_paths
-  admin = User.find_by(role: :admin)
-  admin.email = "admin@admin.com"
-  admin.password = "admin"
-  merchant = User.find_by(role: :merchant)
-  merchant.email = "merchant@merchant.com"
-  merchant.password = "merchant"
-  user = User.find_by(role: :customer)
-  user.email = "user@user.com"
-  user.password = "user"
+  User.find_by(role: :admin).update(email: "admin", password: "admin")
+  User.find_by(role: :merchant).update(email: "merchant", password: "merchant")
+  User.find_by(role: :customer).update(email: "customer", password: "customer")
 end
 
 4.times  { seed_user(role: :admin) }

@@ -1,5 +1,22 @@
-<h1><%=@item.name%><h1>
+  <div class="flex-container">
+    <div style="flex-grow: 1">
+      <div class="item-img">
+        <img src="<%= @item.img_url %>", class="pic">
+      </div>
+    </div>
+    <div style="flex-grow: 4">
+      <%=@item.name%>
+      <br>
+      Price: $<%= @item.price %>
+      <br>
+      Inventory Count: <%= @item.inventory_count %>
+    </div>
+  </div>
 
-<div id="item_<%=@item.id %>" class="item">
-  <%= @item.name %>
-</div>
+  <div class="flex-container">
+    <div style="flex-grow: 1">
+      Description: <%= @item.description %>
+      <br>
+      Sold By: <%= @item.merchant.name %>
+    </div>
+  </div>

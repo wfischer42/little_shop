@@ -31,6 +31,7 @@ describe 'visitor can add items to cart' do
     within("td.sub-#{item_2.id}")do
       expect(page).to have_content(item_2.price)
     end
+    expect(page).to have_content("Cart = 3")
 
     expect(page).to have_content((item_2.price) + (item.price * 2))
     click_on "Empty Cart"
@@ -39,5 +40,7 @@ describe 'visitor can add items to cart' do
     expect(page).to_not have_content(item.name)
     expect(page).to_not have_content(item_2.name)
     expect(page).to have_content("Grand Total: $0.00")
+
+    expect(page).to have_content("Cart = 0")
   end
 end

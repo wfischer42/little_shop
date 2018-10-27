@@ -18,5 +18,6 @@
       Description: <%= @item.description %>
       <br>
       Sold By: <%= @item.merchant.name %>
+      <%= button_to "Add to Cart", cart_items_path(item_id: @item.id)%>
     </div>
   </div>

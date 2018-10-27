@@ -1,10 +1,51 @@
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/wfischer42/little_shop.svg?columns=all)](https://waffle.io/wfischer42/little_shop)
 
-![schema](schema.png)
 # Little Shop of Orders, v2
 
-BE Mod 2 Week 4/5 Group Project
+- BE Mod 2 Week 4/5 Group Project
+- Created By Amy, Nick, Cesar, and William
 
+### Database Schema
+![schema](schema.png)
+
+### Routes
+
+##### Items Routes
+```
+items GET   /items(.:format)      items#index
+item  GET   /items/:id(.:format)  items#show
+```
+A partial should be used for the `item#index` view, since a list of items will
+also be displayed in the `/dashboard/items` (merchant) and the `/merchants/:merchant_id/items` (admin only) routes. Administrators and merchants will also be able to enable/disable items through these alternate routes.
+
+```
+
+            merchants GET   /merchants(.:format)                     merchants#index
+admin_merchant_orders GET   /merchants/:merchant_id/orders(.:format) admin/orders#index
+  edit_admin_merchant GET   /merchants/:id/edit(.:format)            admin/merchants#edit
+       admin_merchant GET   /merchants/:id(.:format)                 admin/merchants#show
+                      PATCH /merchants/:id(.:format)                 admin/merchants#update
+                      PUT   /merchants/:id(.:format)                 admin/merchants#update
+    admin_user_orders GET   /users/:user_id/orders(.:format)         admin/orders#index
+          admin_users GET   /users(.:format)                         admin/users#index
+      edit_admin_user GET   /users/:id/edit(.:format)                admin/users#edit
+           admin_user GET   /users/:id(.:format)                     admin/users#show
+                      PATCH /users/:id(.:format)                     admin/users#update
+                      PUT   /users/:id(.:format)                     admin/users#update
+                 root GET   /                                        welcome#index
+              profile GET   /profile(.:format)                       users#profile
+         profile_edit GET   /profile/edit(.:format)                  users#edit
+                      PATCH /profile/edit(.:format)                  users#update
+       profile_orders GET   /profile/orders(.:format)                orders#index
+     dashboard_orders GET   /dashboard/orders(.:format)              orders#index
+            dashboard GET   /dashboard(.:format)                     users#dashboard
+                 cart GET   /cart(.:format)                          cart_items#index
+                login GET   /login(.:format)                         sessions#new
+                      POST  /login(.:format)                         sessions#create
+             register GET   /register(.:format)                      users#new
+                      POST  /register(.:format)                      users#create
+           cart_items POST  /cart_items(.:format)                    cart_items#create
+```
 
 ## Background and Description
 

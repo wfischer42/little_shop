@@ -7,19 +7,11 @@ class Admin::MerchantsController < Admin::BaseController
   def update
     merchant = User.find(params[:id])
     if merchant.active?
-      binding.pry
-
       merchant.update(active: false)
-      binding.pry
-
-      redirect_to merchants_path
+      redirect_to controller: "/merchants", action: "index"
     else
-      binding.pry
-
       merchant.update(active: true)
-      binding.pry
-
-      redirect_to merchants_path
+      redirect_to controller: "/merchants", action: "index"
     end
   end
 

@@ -47,13 +47,36 @@ RSpec.describe 'When an admin views the merchant index page' do
     visit merchants_path
 
     within("#merchant_#{merchant_1.id}") do
-      binding.pry
-
       click_button("Disable")
-      binding.pry
-
-      expect(merchant_1.active?).to eq(false)
     end
+
+    merchant = User.find(merchant_1.id)
+    within("#merchant_#{merchant_1.id}") do
+      expect(page).to have_button("Enable")
+      expect(merchant.active?).to eq(false)
+    end
+
+  end
+
+  it 'makes a merchant enabled buy clicking the enable button' do
+    admin = create(:user, role: 2)
+    merchant_1, merchant_2, merchant_3 = create_list(:user, 3, role: 1, active: false)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit merchants_path
+
+    within("#merchant_#{merchant_1.id}") do
+      click_button("Enable")
+    end
+
+    merchant = User.find(merchant_1.id)
+
+    within("#merchant_#{merchant.id}") do
+      expect(page).to have_button("Disable")
+      expect(merchant.active?).to eq(true)
+    end
+
   end
 
 

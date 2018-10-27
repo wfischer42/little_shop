@@ -32,7 +32,7 @@ describe 'visitor can add items to cart' do
       expect(page).to have_content(item_2.price)
     end
 
-    expect(page).to have_content("Grand Total: $4.04")
+    expect(page).to have_content((item_2.price) + (item.price * 2))
     click_on "Empty Cart"
 
     expect(current_path).to eq(cart_path)

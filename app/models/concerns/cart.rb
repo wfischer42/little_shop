@@ -40,7 +40,4 @@ class Cart
       CartItem.new(item, quantity)
     end
   end
-
-
-
 end

@@ -22,6 +22,6 @@ describe 'Admin goes to merchant profile page' do
 
     click_link("Edit Profile Information")
     expect(current_path).to eq(edit_admin_merchant_path(merchant))
-    expect(page).to have_content("Update User")
+    expect(page).to have_button("Update User")
   end
 end

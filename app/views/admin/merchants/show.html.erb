@@ -1,20 +1,30 @@
+<div class="user_show_page">
+  <div class="all_user_info">
 <div id="merchant_<%= @merchant.id %>" class="merchant">
-  <div class="user_img">
-  <%=image_tag(@merchant.user_img_url)%>
-  </div>
+  <img src="<%=@merchant.user_img_url%>" class="user_img">
   <div class="merchant_info">
-    <h1><%=@merchant.name%></h1>
-    <h3>Status: <%if @merchant.active?%>
-      active
-      <%else%>
-      inactive
-      <%end%></h3>
+  <h1><%=@merchant.name%></h1>
   <% if current_admin? %>
-      <%=button_to 'Downgrade to Customer Only Account', { controller: 'admin/merchants',
+    <h3>Status:
+      <%if @merchant.active?%>
+      Active
+      <%else%>
+      Inactive
+      <%end%></h3>
+    <%=link_to 'Edit Profile Information',
+                              { controller: 'admin/users',
+                                action: 'edit',
+                                id: @merchant.id },
+                                method: :patch %>
+    <%=button_to 'Downgrade to Customer Only Account',
+                              { controller: 'admin/merchants',
                                 action: 'update',
-                                id: @merchant.id,
-                                attribute: 'role'},
+                                attribute: 'role',
+                                id: @merchant.id },
                                 method: :patch,
                                 data: { confirm: 'Are you sure?' } %>
+
   <% end %>
+</div>
+</div>
 </div>

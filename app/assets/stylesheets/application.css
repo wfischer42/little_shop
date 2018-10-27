@@ -184,6 +184,10 @@ header {
 	width: 50%;
 }
 
+.user_show_page{
+	display: grid;
+}
+
 .user_img {
 	 margin: 0px;
 }
@@ -193,4 +197,20 @@ header {
 	color: blue;
 	text-decoration: underline;
 
+}
+
+.all_user_info .merchant {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	width: 60%;
+}
+
+.user_show_page .user_img{
+	display: grid;
+	margin-top: 25px;
+}
+
+.merchant_info {
+	display: grid;
+	text-align: left;
 }

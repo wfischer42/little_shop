@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
       redirect_to (home_path(user))
     else
       flash.now[:notice] = "The email address or password you entered was incorrect"
-      params[:password] = ""
       render :new
     end
   end

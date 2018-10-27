@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user goes to profile page and updates it info' do
+describe 'user goes to profile page and updates info' do
 
 
   it 'should go to the form' do

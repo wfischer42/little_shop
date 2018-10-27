@@ -1,10 +1,24 @@
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/wfischer42/little_shop.svg?columns=all)](https://waffle.io/wfischer42/little_shop)
 
-![schema](schema.png)
 # Little Shop of Orders, v2
 
-BE Mod 2 Week 4/5 Group Project
+- BE Mod 2 Week 4/5 Group Project
+- Created By Amy, Nick, Cesar, and William
 
+### Database Schema
+![schema](schema.png)
+
+### Routes
+
+_I'll add more details on the route usage later on. Sorry di didn't finish yet!_
+
+##### Items Routes
+```
+items GET   /items(.:format)      items#index
+item  GET   /items/:id(.:format)  items#show
+```
+A partial should be used for the `item#index` view, since a list of items will
+also be displayed in the `/dashboard/items` (merchant) and the `/merchants/:merchant_id/items` (admin only) routes. Administrators and merchants will also be able to enable/disable items through these alternate routes.
 
 ## Background and Description
 

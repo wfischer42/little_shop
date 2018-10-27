@@ -1,6 +1,5 @@
-<h1>Sign up to see more</h1>
 
-<%= form_for @user, url: register_path do |f| %>
+<%= form_for @user, url: profile_edit_path do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :addresss %>

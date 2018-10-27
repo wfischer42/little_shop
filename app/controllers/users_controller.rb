@@ -20,6 +20,21 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def edit
+    @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      flash[:success] = "User information Updated"
+      redirect_to profile_path
+    else
+      flash[:notice] = "Error"
+      redirect_to profile_edit_path
+    end
+  end
+
   def dashboard
     @user = User.find(current_user.id)
   end

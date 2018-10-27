@@ -55,5 +55,28 @@ describe 'Admin goes to merchant profile page' do
       expect(merchant_rename.email).to eq("joe@joecodes.com")
     end
 
+    it 'cannot save changes if changes are invalid (same email)' do
+      admin =  create(:user, role: 2)
+      merchant = create(:user, role: 1)
+      user = create(:user)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit edit_admin_merchant_path(merchant)
+
+      fill_in :user_name, with: "CHANGE NAME"
+      fill_in :user_address, with: "123 Main Street"
+      fill_in :user_city, with: "Fakeville"
+      fill_in :user_state, with: "Alabama"
+      fill_in :user_zip_code, with: 35622
+      fill_in :user_email, with: user.email
+      fill_in :user_password, with: 'JoeIsTheCoolest'
+      fill_in :user_password_confirmation, with: 'JoeIsTheCoolest'
+
+      click_button("Update User")
+
+      expect(page).to have_content("Error")
+    end
+
   end
 end

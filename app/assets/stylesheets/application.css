@@ -52,10 +52,9 @@ a:hover {
 
 }
 .main-nav {
-	display: grid;
-	grid-template-columns: 10% 10% 10% 10% 10% 10%;
+	display: flex;
 	background-color: #718daa91;
-	padding-bottom: 0px;
+	padding: 0 0 0 30px;
 }
 
 .logo {
@@ -67,20 +66,15 @@ a:hover {
 .main-nav a {
 	padding: 5px;
 	text-transform: uppercase;
-	text-align: auto;
-	display: grid;
-	justify-self:center;
-}
-
-.main-nav a {
+	margin: 0 20px 0 20px;
 	color: #d1d8de;
 	font-size: .99em;
+	transition: .2s;
 }
 
 .main-nav a:hover {
 	color: #718daa;
 }
-
 
 header {
 	padding-top: .5em;

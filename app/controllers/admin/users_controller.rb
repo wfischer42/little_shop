@@ -8,5 +8,6 @@ class Admin::UsersController < Admin::BaseController
   def show
     @user = current_user
     @controller = 'admin/users'
+    @path = admin_user_path(@user)
   end
 end

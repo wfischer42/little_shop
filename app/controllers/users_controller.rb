@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(current_user.id)
+    @path = profile_path
   end
 
   def edit

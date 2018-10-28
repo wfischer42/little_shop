@@ -74,7 +74,7 @@ Disabled content should also be restricted from showing up in the statistics pag
 ### Navigation
 
 ```
-1. [ ] done
+1. [X] done
 
 As a visitor
 I see a navigation bar
@@ -112,7 +112,7 @@ Plus the following links
 ```
 
 ```
-4. [ ] done
+4. [X] done
 
 As an admin user
 I see the same links as a registered user
@@ -124,7 +124,7 @@ Plus the following links
 ### "User" CRUD
 
 ```
-5. [ ] done
+5. [X] done
 
 As a visitor
 When I click on the 'register' link in the nav bar
@@ -160,7 +160,7 @@ I see a flash message telling me the email address is already in use
 ```
 
 ```
-7. [ ] done
+7. [X] done
 
 As a registered user, merchant, or admin
 When I visit my own profile page
@@ -172,7 +172,7 @@ Then I also see a link to my orders page ("/orders")
 ```
 
 ```
-8. [ ] done
+8. [X] done
 
 As a registered user, merchant, or admin
 When I visit my profile page
@@ -189,7 +189,7 @@ And I see my updated information
 ```
 
 ```
-9. [ ] done
+9. [X] done
 
 As a registered user, merchant, or admin
 When I attempt to edit my profile data
@@ -202,7 +202,7 @@ And I see a flash message telling me that email address is already in use
 ```
 
 ```
-10. [ ] done
+10. [X] done
 
 As an admin user
 When I visit the user index page ("/users")
@@ -284,7 +284,7 @@ And I see a flash message that I am logged in
 ```
 
 ```
-17. [ ] done
+17. [X] done
 
 As a registered user, merchant, or admin
 When I visit the login path
@@ -324,7 +324,7 @@ Then I also see a link to my merchant orders ("/dashboard/orders")
 ```
 
 ```
-21. [ ] done
+21. [X] done
 
 As an admin user
 When I visit the merchants index page ("/merchants")
@@ -335,7 +335,7 @@ I see an "enable" button next to any merchants whose accounts are disabled
 ```
 
 ```
-22. [ ] done
+22. [X] done
 
 As an admin user
 When I visit the merchant index page
@@ -347,7 +347,7 @@ This merchant cannot log in
 ```
 
 ```
-23. [ ] done
+23. [X] done
 
 As an admin user
 When I visit the merchant index page
@@ -359,7 +359,7 @@ This merchant can now log in
 ```
 
 ```
-24. [ ] done
+24. [X] done
 
 As an admin user
 When I visit the merchant index page
@@ -372,7 +372,7 @@ And I see a link to edit their profile data
 ```
 
 ```
-25. [ ] done
+25. [X] done
 
 As an admin user
 When I visit a merchant's dashboard page ("/merchants/6")
@@ -581,7 +581,7 @@ Each item's name and thumbnail image are links to that item's show page
 ```
 
 ```
-41. [ ] done
+41. [X] done
 
 As any kind of user on the system
 When I visit an item's show page from the items catalog
@@ -600,7 +600,7 @@ I also see a link to add this item to my cart
 ### "Cart" CRUD
 
 ```
-42. [ ] done
+42. [X] done
 
 As any kind of user on the system
 When I visit an item's show page from the items catalog
@@ -610,7 +610,7 @@ The navigation bar increments my cart counter
 ```
 
 ```
-43. [ ] done
+43. [X] done
 
 As any kind of user on the system
 When I visit my cart ("/cart")
@@ -627,7 +627,7 @@ I also see a grand total of what everything in my cart will cost
 ```
 
 ```
-44. [ ] done
+44. [X] done
 
 As any kind of user on the system
 When I visit my cart ("/cart")
@@ -638,7 +638,7 @@ The navigation bar shows 0 items in my cart
 ```
 
 ```
-45. [ ] done
+45. [X] done
 
 As any kind of user on the system
 When I visit my cart
@@ -652,7 +652,7 @@ I see a button or link to decrement the count of items I want to purchase
 ```
 
 ```
-46. [ ] done
+46. [X] done
 
 As a visitor
 When I visit my cart
@@ -662,7 +662,7 @@ The words "log in" is a link to the login page
 ```
 
 ```
-47. [ ] done
+47. [X] done
 
 As a registered user, merchant, or admin
 When I visit my cart

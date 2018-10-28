@@ -81,9 +81,23 @@ describe 'any user can interact with a cart' do
     expect(page).to have_button("Checkout")
   end
 
-  it 'does not show checkout button if user is not logged in' do
+  it 'it shows register/login instead of checkout for visitor' do
     visit cart_path
 
     expect(page).to_not have_button("Checkout")
+    expect(page).to have_link("Login")
+    expect(page).to have_link("Register")
+
+    within("p.checkout-login") do
+      click_on "Login"
+    end
+    expect(current_path).to eq(login_path)
+
+    visit cart_path
+    within("p.checkout-register") do
+      click_on "Register"
+    end
+
+    expect(current_path).to eq(register_path)
   end
 end

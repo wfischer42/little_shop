@@ -89,7 +89,7 @@ Next to the shopping cart link I see a count of the items in my cart
 ```
 
 ```
-2. [ ] done
+2. [X] done
 
 As a registered user
 I see the same links as a visitor
@@ -103,7 +103,7 @@ I also see text that says "Logged in as Ian Douglas" (or whatever my name is)
 ```
 
 ```
-3. [ ] done
+3. [X] done
 
 As a merchant user
 I see the same links as a registered user

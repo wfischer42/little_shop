@@ -9,6 +9,11 @@ describe 'Admin goes to user profile page' do
     visit admin_user_path(@user)
   end
 
+  it 'is rerouted to user path if admin visits merchant path for user' do
+    visit admin_merchant_path(@user)
+    expect(current_path).to eq(admin_user_path(@user))
+  end
+
   it 'can upgrade a user to a merchant' do
     click_button("Upgrade Account")
     @user_rename = User.find(@user.id)

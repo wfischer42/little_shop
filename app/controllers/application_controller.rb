@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :current_admin?
+  helper_method :current_merchant?
   helper_method :cart
 
   def current_user
@@ -11,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def current_merchant?
+    current_user && current_user.merchant?
   end
 
   def cart

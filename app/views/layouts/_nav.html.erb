@@ -1,0 +1,14 @@
+<div class="main-nav">
+  <%= link_to "Items", items_path %>
+  <%= link_to "Merchants", merchants_path %>
+  <%= link_to "Cart = #{cart.cart_count}", cart_path %>
+
+  <% if current_user %>
+    <%= link_to "Profile", profile_path %>
+    <%= link_to "Orders", profile_orders_path %>
+    <%= link_to "Logout", logout_path, method: "delete" %>
+  <% else %>
+    <%= link_to "Login", login_path %>
+    <%= link_to "Register", register_path %>
+  <% end %>
+</div>

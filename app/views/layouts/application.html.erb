@@ -13,13 +13,7 @@
       <h1 class="logo">
         <%= link_to "LittleShop", root_path %>
       </h1>
-      <div class="main-nav">
-        <%= link_to "Items", items_path %>
-        <%= link_to "Merchants", merchants_path %>
-        <%= link_to "Cart = #{cart.cart_count}", cart_path %>
-        <%= link_to "Login", login_path %>
-        <%= link_to "Register", register_path %>
-      </div>
+      <%=render partial: 'layouts/nav', user: @user %>
     </nav>
   </header>
 

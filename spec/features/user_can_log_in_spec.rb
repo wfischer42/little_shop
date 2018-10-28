@@ -32,7 +32,7 @@ describe 'User Sign in' do
     end
 
     subject { page }
-    it { is_expected.to have_current_path(dashboard_path) }
+    it { is_expected.to have_current_path(profile_path) }
 
     describe 'current user' do
       subject { page.driver.request.session[:user_id] }
@@ -47,7 +47,7 @@ describe 'User Sign in' do
     end
 
     subject { page }
-    it { is_expected.to have_current_path(dashboard_path) }
+    it { is_expected.to have_current_path(profile_path) }
 
     describe 'current user' do
       subject { page.driver.request.session[:user_id] }

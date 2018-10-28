@@ -8,16 +8,16 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to (home_path(user))
+      redirect_to (profile_path)
     else
       flash.now[:notice] = "The email address or password you entered was incorrect"
       render :new
     end
   end
 
-  private
-    def home_path(user)
-      return profile_path if user.customer?
-      return dashboard_path if user.merchant? || user.admin?
-    end
+  def destroy
+    reset_session
+    flash[:notice] = "You have been successfully logged out"
+    redirect_to(root_path)
+  end
 end

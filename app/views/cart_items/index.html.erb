@@ -8,6 +8,8 @@
     <th>Item</th>
     <th>Price</th>
     <th>Sold By</th>
+    <th>Add</th>
+    <th>Decrease</th>
     <th>Quantity</th>
     <th>Subtotal</th>
     <th></th>
@@ -18,6 +20,16 @@
     <td><%= ci.name %></td>
     <td><%= number_to_currency(ci.price) %></td>
     <td><%= ci.merchant.name %></td>
+    <td class="add_button-#{ci.id}">
+      <% if ci.quant == ci.inventory_count %><%= button_to "+", "/cart_items/#{ci.id}/add", disabled: true %>
+      <% else %><%= button_to "+", "/cart_items/#{ci.id}/add" %></td>
+      <% end %>
+    <td class="minus_button-#{ci.id}">
+      <% if ci.quant == 1 %><%= button_to '-', cart_items_path(item_id: ci.id), method: :delete%>
+      <% else %><%= button_to "-", "/cart_items/#{ci.id}/minus" %>
+      <% end %>
+    </td>
+
     <td class="quantity-<%= ci.id %>"><%= ci.quant %></td>
     <td class="sub-<%= ci.id %>"><%= number_to_currency(ci.sub(ci)) %></td>
     <td class="remove_item-#{ci.id}"><%= button_to 'Remove', cart_items_path(item_id: ci.id), method: :delete%></td>

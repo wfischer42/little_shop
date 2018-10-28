@@ -6,7 +6,11 @@
         <%=image_tag(user.user_img_url)%>
       </div>
         <% if current_admin? %>
-          <%=link_to user.name, admin_merchant_path(user)%>
+          <% if user.customer? %>
+            <%=link_to user.name, admin_user_path(user) %>
+          <% elsif user.merchant? %>
+            <%=link_to user.name, admin_merchant_path(user) %>
+          <%end%>
           <% if user.active? %>
             <%=button_to 'Disable', { controller: @controller,
                                     action: 'update',

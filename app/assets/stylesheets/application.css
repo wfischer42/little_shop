@@ -92,22 +92,7 @@ header {
 	border-radius-bottom: 5px;
 }
 
-.all_merchants_container {
-	display: grid;
-	width: 100%;
-	margin: 10px;
-	align-content: center;
-}
-
-.all_merchants {
-	display: grid;
-	width: 100%;
-	grid-template-columns: 33% 33% 33%;
-	align-content: center;
-	margin: auto;
-}
-
-.merchant {
+.user {
 	display: grid;
 	width: stretch;
 	align-content: center;
@@ -117,7 +102,7 @@ header {
 }
 
 
-.merchant img{
+.user img{
 	width: 30%;
 	border-radius: 2px;
 	box-shadow: 0 0px 3px 1px rgba(0,0,0,0.5);
@@ -128,7 +113,7 @@ header {
 	 margin: 0px;
 }
 
-.merchant a {
+.user a {
 	display: grid;
 	color:  #020000;
 	text-decoration: underline;
@@ -156,14 +141,14 @@ header {
 	margin-top: 20px;
 }
 
-.all_merchants_container {
+.all_users_container {
 	display: grid;
 	width: 100%;
 	margin: 10px;
 	align-content: center;
 }
 
-.all_merchants {
+.users {
 	display: grid;
 	width: 100%;
 	grid-template-columns: 33% 33% 33%;
@@ -171,7 +156,7 @@ header {
 	margin: auto;
 }
 
-.merchant {
+.user {
 	display: grid;
 	width: 100%;
 	align-content: center;
@@ -179,7 +164,7 @@ header {
 }
 
 
-.merchant img{
+.user img{
 	width: 50%;
 }
 
@@ -191,14 +176,14 @@ header {
 	 margin: 0px;
 }
 
-.merchant a {
+.user a {
 	display: grid;
 	color: blue;
 	text-decoration: underline;
 
 }
 
-.all_user_info .merchant {
+.all_user_info .user {
 	display: grid;
 	grid-template-columns: 50% 50%;
 	width: 60%;
@@ -209,7 +194,7 @@ header {
 	margin-top: 25px;
 }
 
-.merchant_info {
+.user_info {
 	display: grid;
 	text-align: left;
 }

@@ -10,11 +10,11 @@ RSpec.describe 'When an admin views the merchant index page' do
 
     visit merchants_path
 
-    within("#merchant_#{@merchant_1.id}") do
+    within("#user_#{@merchant_1.id}") do
       expect(page).to have_button("Enable")
     end
 
-    within("#merchant_#{@merchant_4.id}") do
+    within("#user_#{@merchant_4.id}") do
       expect(page).to have_button("Disable")
     end
   end
@@ -28,11 +28,11 @@ RSpec.describe 'When an admin views the merchant index page' do
 
     visit merchants_path
 
-    within("#merchant_#{@merchant_1.id}") do
+    within("#user_#{@merchant_1.id}") do
       expect(page).to have_button("Disable")
     end
 
-    within("#merchant_#{@merchant_4.id}") do
+    within("#user_#{@merchant_4.id}") do
       expect(page).to have_button("Enable")
     end
 
@@ -46,12 +46,12 @@ RSpec.describe 'When an admin views the merchant index page' do
 
     visit merchants_path
 
-    within("#merchant_#{merchant_1.id}") do
+    within("#user_#{merchant_1.id}") do
       click_button("Disable")
     end
 
     merchant = User.find(merchant_1.id)
-    within("#merchant_#{merchant_1.id}") do
+    within("#user_#{merchant_1.id}") do
       expect(page).to have_button("Enable")
       expect(merchant.active?).to eq(false)
     end
@@ -66,13 +66,13 @@ RSpec.describe 'When an admin views the merchant index page' do
 
     visit merchants_path
 
-    within("#merchant_#{merchant_1.id}") do
+    within("#user_#{merchant_1.id}") do
       click_button("Enable")
     end
 
     merchant = User.find(merchant_1.id)
 
-    within("#merchant_#{merchant.id}") do
+    within("#user_#{merchant.id}") do
       expect(page).to have_button("Disable")
       expect(merchant.active?).to eq(true)
     end

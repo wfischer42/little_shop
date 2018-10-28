@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @url = register_path
   end
 
   def create
@@ -37,10 +38,6 @@ class UsersController < ApplicationController
       flash[:notice] = "Error"
       redirect_to profile_edit_path
     end
-  end
-
-  def dashboard
-    @user = User.find(current_user.id)
   end
 
   private

@@ -1,17 +1,1 @@
-<div class="user_info">
-  <div class="primary_info">
-    <ul>
-      <li> <%= @user.name %></li>
-      <li> <%= @user.email %></li>
-      <li> <%= @user.address %> <br><%= @user.city %>, <%= @user.state %>, <%= @user.zip_code %></li>
-    </ul>
-  </div>
-  <%= link_to "View Orders", profile_orders_path, id: "order_page_link" %>
-  <div class="stats">
-    <h1>Customer Sense:</h1>
-    <p><%= @user.created_at.year %></p>
-  </div>
-  <div class="update">
-    <%= link_to "Update Profile", profile_edit_path  %>
-  </div>
-</div>
+<%=render partial: 'user_profile', user: @user %>

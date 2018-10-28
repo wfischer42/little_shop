@@ -24,7 +24,10 @@ def seed_item
               merchant: merchant,
               price: Faker::Number.decimal(2),
               inventory_count: Faker::Number.between(1,1000),
-              img_url: Faker::LoremFlickr.image("100x100"))
+              img_url: Faker::Avatar.image(rand(1..1000).to_s,
+                                           "150x150", "png",
+                                           "set#{rand(1..4)}",
+                                           "bg#{rand(1..3)}"))
 end
 
 def seed_order

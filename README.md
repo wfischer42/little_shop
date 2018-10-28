@@ -273,7 +273,7 @@ And I only see that user's orders
 ### "Session" CRUD
 
 ```
-16. [ ] done
+16. [X] done
 
 As a visitor
 When I visit the login path
@@ -293,7 +293,7 @@ And I see a flash message that tells me I am already logged in
 ```
 
 ```
-18. [ ] done
+18. [X] done
 
 As a registered user, merchant, or admin
 When I visit the login path
@@ -302,7 +302,7 @@ And I see a flash message that tells me I am already logged in
 ```
 
 ```
-19. [ ] done
+19. [X] done
 
 As a registered user, merchant, or admin
 When I visit the logout path

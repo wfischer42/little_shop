@@ -17,7 +17,7 @@ require 'rails_helper'
         subject{ visit merchants_path; page}
 
         it {is_expected.to have_current_path(merchants_path)}
-        it {is_expected.to have_selector(".merchant", count: merchants.length)}
+        it {is_expected.to have_selector(".user", count: merchants.length)}
         it {is_expected.to have_content(merchants.first.name)}
         it {is_expected.to have_content(merchants.last.name)}
       end
@@ -39,7 +39,7 @@ require 'rails_helper'
         subject{ visit merchants_path; page}
 
         it {is_expected.to have_current_path(merchants_path)}
-        it {is_expected.to have_selector(".merchant", count: merchants.length)}
+        it {is_expected.to have_selector(".user", count: merchants.length)}
         it {is_expected.to have_content(merchants.first.name)}
         it {is_expected.to have_content(merchants.last.name)}
       end

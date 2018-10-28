@@ -1,33 +1,3 @@
 <h1>All Merchants<h1>
 
-<div class="all_merchants_container">
-<div class="all_merchants">
-  <% @merchants.each do |merchant| %>
-    <div id="merchant_<%= merchant.id %>" class="merchant">
-    <div class="user_img">
-      <%=image_tag(merchant.user_img_url)%>
-    </div>
-      <% if current_admin? %>
-        <%=link_to merchant.name, admin_merchant_path(merchant)%>
-        <% if merchant.active? %>
-          <%=button_to 'Disable', { controller: 'admin/merchants',
-                                    action: 'update',
-                                    attribute: 'active',
-                                    id: merchant.id },
-                                    method: :patch,
-                                    data: { confirm: 'Are you sure?' } %>
-        <% else %>
-          <%= button_to 'Enable', { controller: 'admin/merchants',
-                                    action: 'update',
-                                    attribute: 'active',
-                                    id: merchant.id },
-                                    method: :patch,
-                                    data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      <% else %>
-        <%= merchant.name%>
-      <% end %>
-    </div>
-  <%end%>
-</div>
-</div>
+<%=render partial: 'users/user_index', users: @users, controller: @controller %>

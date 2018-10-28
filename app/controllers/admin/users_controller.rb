@@ -2,10 +2,12 @@ class Admin::UsersController < Admin::BaseController
 
   def edit
     @user = User.find(params[:id])
-    if @user.merchant?
-      redirect_to admin_merchant_path(@user)
-    elsif @user.customer?
-      redirect_to admin_user_path(@user)
-    end
+    @url = admin_user_path(@user)
+  end
+
+  def show
+    @user = current_user
+    @controller = 'admin/users'
+    @path = admin_user_path(@user)
   end
 end

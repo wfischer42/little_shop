@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @url = register_path
   end
 
   def create
@@ -18,10 +19,12 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(current_user.id)
+    @path = profile_path
   end
 
   def edit
     @user = User.find(current_user.id)
+    @url = profile_path
   end
 
   def update
@@ -38,11 +41,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def dashboard
-    @user = User.find(current_user.id)
-  end
-
-  private 
+  private
     def user_params
       params.require(:user).permit(:name, :address, :city, :state, :zip_code, :email, :password, :password_confirmation)
     end

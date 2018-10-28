@@ -43,10 +43,10 @@ Rails.application.routes.draw do
   get   '/dashboard',          to: 'users#dashboard'
   get   '/login',              to: 'sessions#new'
   post  '/login',              to: 'sessions#create'
+  delete '/logout',            to: 'sessions#destroy'
   get   '/cart',               to: 'cart_items#index'
   post  '/cart_items',         to: 'cart_items#create'
   delete '/cart_items',        to: 'cart_items#destroy'
   post 'cart_items/:id/add',   to: 'cart_items#add_item'
   post 'cart_items/:id/minus', to: 'cart_items#minus_item'
-
 end

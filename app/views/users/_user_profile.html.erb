@@ -1,0 +1,49 @@
+<div class="user_show_page">
+  <div class="all_user_info">
+    <div id="user_<%= @user.id %>" class="user">
+      <img src="<%=@user.user_img_url%>" class="user_img">
+      <div class="user_info">
+        <h1><%=@user.name%></h1>
+        <p><%= @user.email %><br>
+        <%= @user.address %> <br><%= @user.city %>, <%= @user.state %>, <%= @user.zip_code %></p>
+        <% if current_admin? && @path != profile_path %>
+          <h3>Status:
+            <%if @user.active?%>
+            Active
+            <%else%>
+            Inactive
+            <%end%></h3>
+          <%= link_to 'Edit Profile Information',
+              { controller: @controller,
+                action: 'edit',
+                id: @user.id },
+                method: :get %>
+            <% if @user.merchant? %>
+              <%= button_to 'Downgrade Account',
+                  { controller: @controller,
+                    action: 'update',
+                    attribute: 'role',
+                    id: @user.id },
+                    method: :patch,
+                    data: { confirm: 'Are you sure?' } %>
+            <%elsif @user.customer? %>
+              <%=button_to 'Upgrade Account',
+                                      { controller: @controller,
+                                        action: 'update',
+                                        attribute: 'role',
+                                        id: @user.id },
+                                        method: :patch,
+                                        data: { confirm: 'Are you sure?' } %>
+            <%end%>
+        <% else %>
+          <%= link_to "View Orders", profile_orders_path, id: "order_page_link" %>
+          <%= link_to "Update Profile", profile_edit_path  %>
+        <% end %>
+      </div>
+      <div class="stats">
+          <h3>User Since:</h3>
+          <p><%= @user.created_at.year %></p>
+      </div>
+    </div>
+  </div>
+</div>

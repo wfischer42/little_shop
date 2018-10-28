@@ -42,7 +42,7 @@ describe 'User Register' do
     let(:user) { User.last }
 
     it { is_expected.to have_current_path(profile_path)}
-    it { is_expected.to have_content("Hello #{user.name}")}
+    it { is_expected.to have_content("You are now registered and logged in #{user.name}")}
     it { is_expected.to have_content(user.name) }
     it { is_expected.to have_content(user.address) }
     it { is_expected.to have_content(user.city) }

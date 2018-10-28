@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Hello #{@user.name}"
+      flash[:notice] = "You are now registered and logged in #{@user.name}"
       redirect_to profile_path
     else
       flash[:notice] = "Error"

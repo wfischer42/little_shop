@@ -15,3 +15,8 @@
     <%= link_to "Register", register_path %>
   <% end %>
 </div>
+<% if current_admin? %>
+<div class = "admin-notice">
+  <%= "Logged in as #{current_user.name}" %>
+</div>
+<% end %>

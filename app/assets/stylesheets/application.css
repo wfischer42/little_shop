@@ -76,6 +76,13 @@ a:hover {
 	color: #718daa;
 }
 
+.admin-notice {
+	color: white;
+	margin: 12px 0 0 60px;
+	padding: 0;
+	font-weight: 100;
+}
+
 header {
 	padding-top: .5em;
 	padding-bottom: 1em;

@@ -105,8 +105,8 @@ describe 'nav bar' do
 
   context 'for logged in admin' do
     before do
-      user = create(:user, email: "didfjslkd", role: :admin)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      @user = create(:user, email: "didfjslkd", role: :admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit root_path
     end
     context 'there is no login or register link' do
@@ -125,6 +125,9 @@ describe 'nav bar' do
     context 'Dashboard Link' do
       subject { click_link "Dashboard"; page}
       it { is_expected.to have_current_path(dashboard_path) }
+    end
+    context 'Username Display' do
+      scenario { expect(page).to have_content(@user.name) }
     end
     context 'Logout' do
       subject { click_link "Logout"; page}

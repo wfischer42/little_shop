@@ -38,3 +38,7 @@
   <% end %>
 </table>
 Grand Total: <%= number_to_currency(@cart.cart_total) %>
+
+<% if current_user && @cart.cart_total > 0.01  %>
+  <%= button_to "Checkout", profile_orders_path %>
+<% end %>

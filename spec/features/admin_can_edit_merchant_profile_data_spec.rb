@@ -11,6 +11,8 @@ describe 'Admin goes to merchant profile page' do
     click_button("Downgrade Account")
     merchant_rename = User.find(merchant.id)
     expect(merchant_rename.role).to eq('customer')
+    expect(current_path).to eq(admin_user_path(merchant_rename))
+
   end
 
   describe 'can edit profile information' do
@@ -79,5 +81,27 @@ describe 'Admin goes to merchant profile page' do
       expect(page).to have_content("Error")
     end
 
+  end
+
+  describe 'only admin can view profile page routes' do
+    it 'a customer gets 404 error when trying to view admin merchant path' do
+
+      user =  create(:user)
+      merchant = create(:user, role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit admin_merchant_path(merchant)
+
+      expect(page).to have_content("404")
+    end
+
+    it 'a merchant gets 404 error when trying to view admin merchant path' do
+      merchant = create(:user, role: 1)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant)
+      visit admin_merchant_path(merchant)
+
+      expect(page).to have_content("404")
+    end
   end
 end

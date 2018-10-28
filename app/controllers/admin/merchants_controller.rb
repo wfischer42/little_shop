@@ -13,6 +13,7 @@ class Admin::MerchantsController < Admin::BaseController
 
   def update
     user = User.find(params[:id])
+    update_redirect = admin_merchant_path(user)
     if params[:attribute] == 'active'
       if user.active?
         user.update(active: false)
@@ -24,22 +25,16 @@ class Admin::MerchantsController < Admin::BaseController
         redirect_to controller: "/merchants", action: "index"
       end
     elsif params[:attribute] == 'role'
-      if user.customer?
-        user.update(role: 1)
-        flash[:notice] = "#{user.name} is now a merchant."
-        redirect_to controller: "/merchants", action: "index"
-      elsif user.merchant?
         user.update(role: 0)
         flash[:notice] = "#{user.name} is now a customer only."
-        redirect_to controller: "/merchants", action: "index"
-      end
+        redirect_to controller: "admin/users", action: "show"
     else
       if user.update(user_params)
         flash[:success] = "User information Updated"
-      redirect_to admin_merchant_path(user)
+      redirect_to update_redirect
       else
         flash[:notice] = "Error"
-        redirect_to admin_merchant_path(user)
+        redirect_to update_redirect
       end
     end
   end

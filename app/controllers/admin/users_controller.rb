@@ -30,15 +30,9 @@ class Admin::UsersController < Admin::BaseController
         redirect_to controller: "admin/users", action: "index"
       end
     elsif params[:attribute] == 'role'
-      if user.customer?
         user.update(role: 1)
         flash[:notice] = "#{user.name} is now a merchant."
-        redirect_to controller: "admin/users", action: "index"
-      elsif user.merchant?
-        user.update(role: 0)
-        flash[:notice] = "#{user.name} is now a customer only."
-        redirect_to controller: "admin/users", action: "index"
-      end
+        redirect_to controller: "admin/merchants", action: "show"
     else
       if user.update(user_params)
         flash[:success] = "User information Updated"

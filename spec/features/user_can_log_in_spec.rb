@@ -18,6 +18,7 @@ describe 'User Sign in' do
 
     subject { page }
     it { is_expected.to have_current_path(profile_path) }
+    it { is_expected.to have_content("You have successfully logged in!")}
 
     describe 'current user' do
       subject { page.driver.request.session[:user_id] }
@@ -33,6 +34,8 @@ describe 'User Sign in' do
 
     subject { page }
     it { is_expected.to have_current_path(profile_path) }
+    it { is_expected.to have_content("You have successfully logged in!")}
+
 
     describe 'current user' do
       subject { page.driver.request.session[:user_id] }
@@ -48,6 +51,7 @@ describe 'User Sign in' do
 
     subject { page }
     it { is_expected.to have_current_path(profile_path) }
+    it { is_expected.to have_content("You have successfully logged in!")}
 
     describe 'current user' do
       subject { page.driver.request.session[:user_id] }

@@ -39,8 +39,8 @@ describe 'nav bar' do
 
   context 'for logged in user' do
     before do
-      user = create(:user, email: "didfjslkd")
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      @user = create(:user, email: "didfjslkd")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit root_path
     end
     context 'there is no login or register link' do
@@ -56,6 +56,9 @@ describe 'nav bar' do
       subject { click_link "Orders"; page}
       it { is_expected.to have_current_path(profile_orders_path) }
     end
+    context 'Username Display' do
+      scenario { expect(page).to have_content(@user.name) }
+    end
     context 'Logout' do
       subject { click_link "Logout"; page}
       it { is_expected.to have_current_path(root_path) }
@@ -70,8 +73,8 @@ describe 'nav bar' do
 
   context 'for logged in merchant' do
     before do
-      user = create(:user, email: "didfjslkd", role: :merchant)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      @user = create(:user, email: "didfjslkd", role: :merchant)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit root_path
     end
     context 'there is no login or register link' do
@@ -90,6 +93,9 @@ describe 'nav bar' do
     context 'Dashboard Link' do
       subject { click_link "Dashboard"; page}
       it { is_expected.to have_current_path(dashboard_path) }
+    end
+    context 'Username Display' do
+      scenario { expect(page).to have_content(@user.name) }
     end
     context 'Logout' do
       subject { click_link "Logout"; page}

@@ -69,16 +69,6 @@ describe 'nav bar' do
   end
 
   context 'for logged in merchant' do
-    # a link to return to the welcome / home page of the application ("/")
-    # a link to browse all items for sale ("/items")
-    # a link to see all merchants ("/merchants")
-    # a link to my shopping cart ("/cart")
-    # a link to my profile page ("/profile")
-    # a link to see my orders ("/profile/orders")
-    # a link to log out ("/logout")
-    # I also see text that says "Logged in as Ian Douglas" (or whatever my name is)
-    # Plus the following links
-    # a link to my merchant dashboard ("/dashboard")
     before do
       user = create(:user, email: "didfjslkd", role: :merchant)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -100,6 +90,44 @@ describe 'nav bar' do
     context 'Dashboard Link' do
       subject { click_link "Dashboard"; page}
       it { is_expected.to have_current_path(dashboard_path) }
+    end
+    context 'Logout' do
+      subject { click_link "Logout"; page}
+      it { is_expected.to have_current_path(root_path) }
+      context 'Session user ID' do
+        scenario { expect(page.driver.request.session[:user_id]).to be_nil}
+      end
+      context 'Session cart' do
+        scenario { expect(page.driver.request.session[:cart]).to be_nil}
+      end
+    end
+  end
+
+  context 'for logged in admin' do
+    before do
+      @user = create(:user, email: "didfjslkd", role: :admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      visit root_path
+    end
+    context 'there is no login or register link' do
+      subject { page }
+      it { is_expected.to_not have_content("Login")}
+      it { is_expected.to_not have_content("Register")}
+    end
+    context 'Profile Link' do
+      subject { click_link "Profile"; page }
+      it { is_expected.to have_current_path(profile_path) }
+    end
+    context 'Orders Link' do
+      subject { click_link "Orders"; page}
+      it { is_expected.to have_current_path(profile_orders_path) }
+    end
+    context 'Dashboard Link' do
+      subject { click_link "Dashboard"; page}
+      it { is_expected.to have_current_path(dashboard_path) }
+    end
+    context 'Username Display' do
+      scenario { expect(page).to have_content(@user.name) }
     end
     context 'Logout' do
       subject { click_link "Logout"; page}

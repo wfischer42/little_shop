@@ -1,9 +1,5 @@
 <h1>All Items<h1>
 
   <div class="all_items">
-    <% @items.each do |item| %>
-      <div id="items<%= item.id %>" class="item">
-        <%= link_to "#{item.name}", item_path(item) %>
-      </div>
-    <%end%>
+    <%= render partial: 'partial/card', object: @items, as: 'card_data' %>
   </div>

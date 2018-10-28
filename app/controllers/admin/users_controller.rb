@@ -6,7 +6,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @controller = 'admin/users'
     @path = admin_user_path(@user)
   end

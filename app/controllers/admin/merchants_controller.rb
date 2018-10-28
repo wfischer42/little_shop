@@ -3,6 +3,7 @@ class Admin::MerchantsController < Admin::BaseController
   def show
     @user = User.find(params[:id])
     @controller = 'admin/merchants'
+    @path = admin_merchant_path(@user)
   end
 
   def edit

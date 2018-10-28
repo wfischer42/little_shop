@@ -54,15 +54,26 @@ describe 'User Sign in' do
       it { is_expected.to eq(@admin.id)}
     end
   end
-
-  context 'with invalid credentials' do
+  context 'prohibited' do
     let(:warning) { "The email address or password you entered was incorrect" }
-    before do
-      fill_in 'email', with: @customer.email
-      fill_in 'password', with: "1234"
-      click_on 'Sign in'
+    context 'with invalid credentials' do
+      before do
+        fill_in 'email', with: @customer.email
+        fill_in 'password', with: "1234"
+        click_on 'Sign in'
+      end
+      scenario { expect(page).to have_content(warning) }
+      scenario { expect(page.driver.request.session[:user_id]).to be_nil }
     end
-    subject { page }
-    it { is_expected.to have_content(warning)}
+
+    context 'for disabled users' do
+      before do
+        @customer.update(active: false)
+        fill_in 'email', with: @customer.email
+        click_on 'Sign in'
+      end
+      scenario { expect(page).to have_content(warning)}
+      scenario { expect(page.driver.request.session[:user_id]).to be_nil}
+    end
   end
 end

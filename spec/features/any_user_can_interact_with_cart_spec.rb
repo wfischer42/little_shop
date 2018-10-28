@@ -71,4 +71,19 @@ describe 'any user can interact with a cart' do
 
     expect(page).to_not have_content(@item.name)
   end
+
+  it 'shows checkout button for user' do
+    admin =  create(:user, role: 2)
+    merchant = create(:user, role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant)
+    visit cart_path
+
+    expect(page).to have_button("Checkout")
+  end
+
+  it 'does not show checkout button if user is not logged in' do
+    visit cart_path
+
+    expect(page).to_not have_button("Checkout")
+  end
 end

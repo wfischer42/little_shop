@@ -6,7 +6,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @controller = 'admin/users'
     @path = admin_user_path(@user)
   end
@@ -18,34 +18,27 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     user = User.find(params[:id])
-    update_redirect = admin_user_path(user)
     if params[:attribute] == 'active'
       if user.active?
         user.update(active: false)
         flash[:notice] = "#{user.name} is now inactive."
-        redirect_to controller: "admin/users", action: "index"
+        redirect_to admin_users_path
       else
         user.update(active: true)
         flash[:notice] = "#{user.name} is now active."
-        redirect_to controller: "admin/users", action: "index"
+        redirect_to admin_users_path
       end
     elsif params[:attribute] == 'role'
-      if user.customer?
         user.update(role: 1)
         flash[:notice] = "#{user.name} is now a merchant."
-        redirect_to controller: "admin/users", action: "index"
-      elsif user.merchant?
-        user.update(role: 0)
-        flash[:notice] = "#{user.name} is now a customer only."
-        redirect_to controller: "admin/users", action: "index"
-      end
+        redirect_to admin_merchant_path(user)
     else
       if user.update(user_params)
         flash[:success] = "User information Updated"
-      redirect_to update_redirect
+        redirect_to admin_user_path(user)
       else
         flash[:notice] = "Error"
-        redirect_to update_redirect
+        redirect_to admin_user_path(user)
       end
     end
   end

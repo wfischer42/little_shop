@@ -6,5 +6,6 @@ FactoryBot.define do
     sequence :inventory_count   { |n| n }
     sequence :description       { |n| "Description #{n}" }
     sequence :img_url           { |n| "www.example.com/#{n}" }
+    active                      { true }
   end
 end

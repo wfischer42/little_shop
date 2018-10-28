@@ -10,4 +10,10 @@ class Admin::UsersController < Admin::BaseController
     @controller = 'admin/users'
     @path = admin_user_path(@user)
   end
+
+  def index
+    @users = User.where(role: 0)
+    @controller = 'admin/users'
+  end
+
 end

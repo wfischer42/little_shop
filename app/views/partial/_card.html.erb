@@ -5,11 +5,12 @@
 
       <% if card.class == Item %>
         <div class="img_url">
-          <%= link_to <img src="<%= card.img_url %>" alt="item_img">, item_path(card) %>   
+          <%= link_to (item_path(card)) do %>
+            <img src="<%= card.img_url %>" alt="item_img">
+          <% end  %>
         </div>
         <div class="card_info">
           <%= link_to "#{card.name}", item_path(card) %>
-          <img src="<%= card.img_url %>" alt="item_img">
           <%= card.merchant.name %>
           <%= card.inventory_count %>
           <%= card.price %>

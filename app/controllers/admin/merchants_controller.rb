@@ -2,6 +2,9 @@ class Admin::MerchantsController < Admin::BaseController
 
   def show
     @user = User.find(params[:id])
+    if @user.customer?
+      redirect_to admin_user_path(@user)
+    end
     @controller = 'admin/merchants'
     @path = admin_merchant_path(@user)
   end

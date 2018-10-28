@@ -12,7 +12,16 @@ describe 'Admin goes to merchant profile page' do
     merchant_rename = User.find(merchant.id)
     expect(merchant_rename.role).to eq('customer')
     expect(current_path).to eq(admin_user_path(merchant_rename))
+  end
 
+  it 'is rerouted to merchant path if admin visits user path for merchant' do
+    admin =  create(:user, role: 2)
+    merchant = create(:user, role: 1)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit admin_user_path(merchant)
+    expect(current_path).to eq(admin_merchant_path(merchant))
   end
 
   describe 'can edit profile information' do

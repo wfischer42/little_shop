@@ -16,7 +16,7 @@ describe 'Order' do
       scenario { expect(page).to have_current_path(profile_orders_path) }
       context 'order details block' do
         let(:order) { Order.last }
-        xscenario  { expect(page).to have_content(grand_total) }
+        xscenario { expect(page).to have_content(grand_total) }
         xscenario { expect(order_block).to have_content("Order status: pending") }
         xscenario { expect(order_block).to have_css("#cancel-order") }
       end

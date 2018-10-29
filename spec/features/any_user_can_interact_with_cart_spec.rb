@@ -100,4 +100,12 @@ describe 'any user can interact with a cart' do
 
     expect(current_path).to eq(register_path)
   end
+
+  it 'clears cart on checkout' do
+    merchant = create(:user, role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant)
+    visit cart_path
+    click_button("checkout")
+    expect(page.driver.request.session[:cart]).to be_nil
+  end
 end

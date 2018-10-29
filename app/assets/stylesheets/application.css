@@ -192,6 +192,11 @@ header {
 
 }
 
+.all_stuff {
+		display: grid;
+	grid-template-columns: 33% 33% 33%;
+}
+
 .all_user_info .user {
 	display: grid;
 	grid-template-columns: 50% 50%;
@@ -212,6 +217,8 @@ header {
 	display: grid;
 	grid-template-columns: 50% 50%;
 	align-items: center;
+	width: 100%;
+	margin: 20px;
 }
 
 .card_info {
@@ -223,6 +230,12 @@ header {
 .card_img {
 	width: 20%;
 	text-align: center;
+}
+
+.card_container .card_img{
+	display: grid;
+	margin-left: 70px;
+
 }
 
 .img_box {

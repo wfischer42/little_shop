@@ -13,5 +13,6 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_uniqueness_of(:email)}
   it { is_expected.to validate_numericality_of(:zip_code)}
   it { is_expected.to have_many(:orders)}
+  it { is_expected.to have_many(:items)}
   it { expect(subject.role).to eq("customer") }
 end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :orders
+  has_many :items
 
   validates_presence_of :name, :address, :city, :state,
                         :zip_code, :role, :email,

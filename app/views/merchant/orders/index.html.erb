@@ -1,9 +1,11 @@
 
 <div class="orders_card">
   <% @orders.each do |order| %>
-    <%= order.id %>
-    <%= order.created_at.strftime("%m-%d-%Y") %>
-    <%= order.updated_at.strftime("%m-%d-%Y") %>
-    <%= order.status %>
+  <ul>
+    <li>Order Id: <%= order.id %></li>
+    <li>Created At: <%= order.created_at.strftime("%m-%d-%Y") %></li>
+    <li>Updated At: <%= order.updated_at.strftime("%m-%d-%Y") %></li>
+    <li>Order Status: <%= order.status %></li>
+  </ul>
   <% end  %>
 </div>

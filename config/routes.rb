@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   patch '/profile',            to: 'users#update'
   get   '/profile',            to: 'users#profile'
   get   '/profile/orders',     to: 'orders#index'
+  post  '/profile/orders',     to: 'orders#create'
   get   '/dashboard',          to: 'users#dashboard'
   get   '/login',              to: 'sessions#new'
   post  '/login',              to: 'sessions#create'

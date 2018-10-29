@@ -120,6 +120,10 @@ describe 'nav bar' do
       it { is_expected.to_not have_content("Login")}
       it { is_expected.to_not have_content("Register")}
     end
+    context 'Users Link' do
+      subject { click_link "Users"; page }
+      it { is_expected.to have_current_path(admin_users_path) }
+    end
     context 'Profile Link' do
       subject { click_link "Profile"; page }
       it { is_expected.to have_current_path(profile_path) }

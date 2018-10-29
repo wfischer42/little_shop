@@ -21,7 +21,7 @@ class CartItemsController < ApplicationController
     session[:cart] = cart.data
     redirect_to cart_path
   end
-  
+
   def index
     @cart_items = cart.items
   end

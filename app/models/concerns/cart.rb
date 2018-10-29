@@ -22,9 +22,9 @@ class Cart
   end
 
   def cart_total
-    cis = items
-    result = cis.inject(0) do |sum, cis|
-      sum + cis.sub(cis)
+    cart_items = items
+    result = cart_items.inject(0) do |sum, cart_items|
+      sum + cart_items.sub(cart_items)
     end
     result
   end

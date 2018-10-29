@@ -14,7 +14,6 @@ describe 'Order' do
     end
     describe 'user check out redirects to orders page' do
       scenario { expect(page).to have_current_path(profile_orders_path) }
-      it {binding.pry}
       context 'order details block' do
         let(:order) { Order.last }
         xscenario  { expect(page).to have_content(grand_total) }

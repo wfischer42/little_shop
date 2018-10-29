@@ -1,0 +1,39 @@
+<h1>My Items</h1>
+<div class="all_stuff">
+<% @items.each do |card| %>
+  <div id="card<%= card.id %>" class="card">
+    <div class ="card_container">
+      <div class="card_img">
+          <div class="img_box">
+          <%=link_to item_path(card) do %>
+            <img src="<%= card.img_url %>" alt="item_img">
+          <%end%>
+        </div>
+      </div>
+      <div class="card_info">
+        <p>Item: <%= link_to "#{card.name}", item_path(card) %></p>
+        <p>Item Id: <%= card.id %></p>
+        <p>Merchant: <%= card.merchant.name %></p>
+        <p>Inventory Count: <%= card.inventory_count %></p>
+        <p>Price: <%= number_to_currency(card.price) %></p>
+          <% if card.active? %>
+            <%=button_to 'Disable', { controller: 'merchant/items',
+                                      action: 'update',
+                                      attribute: 'active',
+                                      id: card.id },
+                                      method: :patch,
+                                      data: { confirm: 'Are you sure?' } %>
+          <% else %>
+            <%= button_to 'Enable', { controller: 'merchant/items',
+                                      action: 'update',
+                                      attribute: 'active',
+                                      id: card.id },
+                                      method: :patch,
+                                      data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <p><%= link_to "Edit Item", edit_merchant_item_path(card) %></p>
+      </div>
+    </div>
+  </div>
+<%end%>
+</div>

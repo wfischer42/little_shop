@@ -442,7 +442,7 @@ then I am redirected to "/users/8" and see their user profile page
 ### "Items" CRUD
 
 ```
-31. [ ] done
+31. [X] done
 
 As a merchant
 When I visit my dashboard page ("/dashboard")

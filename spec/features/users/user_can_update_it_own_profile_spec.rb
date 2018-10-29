@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'user goes to profile page and updates info' do
 
-
   it 'should go to the form' do
     user = create(:user, email: "didfjslkd")
 

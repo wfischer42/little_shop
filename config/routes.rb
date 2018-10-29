@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :merchant, path: :dashboard, as: :merchant do
-    resources :items, only: [:index, :show, :edit, :update] do
+    resources :items, only: [:index, :show, :edit, :update, :new, :create] do
       patch '/enable', to: 'items#enable'
       patch '/disable', to: 'items#disable'
     end

@@ -469,7 +469,7 @@ If the item is disabled, I see a button or link to enable the item
 ```
 
 ```
-33. [ ] done
+33. [X] done
 
 As a merchant
 When I visit my items page
@@ -480,7 +480,7 @@ I see the item is now disabled
 ```
 
 ```
-34. [ ] done
+34. [X] done
 
 As a merchant
 When I visit my items page

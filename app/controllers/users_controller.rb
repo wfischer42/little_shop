@@ -11,6 +11,9 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:notice] = "You are now registered and logged in #{@user.name}"
       redirect_to profile_path
+    elsif User.where.not(id: @user.id).exists?(email: user_params[:email])
+      flash[:notice] = "Email address is already in use"
+      render :new
     else
       flash[:notice] = "Error"
       render :new

@@ -147,7 +147,7 @@ I see a flash message indicating that I am now registered and logged in
 ```
 
 ```
-6. [ ] done
+6. [X] done
 
 As a visitor
 When I visit the user registration page

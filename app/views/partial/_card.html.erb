@@ -1,22 +1,36 @@
-
-<div class="all_stuff">
+  <div class="item_index_stats">
+    <p>5 Most Popular Items: </p>
+    <p>5 Most Popular Merchants: </p>
+    <p>3 Fastest Order-Filling Merchants: </p>
+    <p>3 Slowest Order-Filling Merchants: </p>
+  </div>
+  <div class="all_stuff">
   <% card_data.each do |card| %>
     <div id="card<%= card.id %>" class="card">
-
-      <% if card.class == Item %>
-        <div class="img_url">
-          <%= link_to (item_path(card)) do %>
-            <img src="<%= card.img_url %>" alt="item_img">
-          <% end  %>
+      <div class ="card_container">
+        <div class="card_img">
+          <% if current_admin? %>
+            <div class="img_box">
+            <%=link_to item_path(card) do %>
+              <img src="<%= card.img_url %>" alt="item_img">
+            <%end%>
+          </div>
+          <%else%>
+            <%= link_to item_path(card) do %>
+              <img src="<%= card.img_url %>" alt="item_img">
+            <%end%>
+          <%end%>
         </div>
         <div class="card_info">
-          <%= link_to "#{card.name}", item_path(card) %>
-          <%= card.merchant.name %>
-          <%= card.inventory_count %>
-          <%= card.price %>
-
           <% if current_admin? %>
-            <%=link_to card.name, admin_merchant_path(card)%>
+            <p>Item: <%= link_to "#{card.name}", item_path(card) %></p>
+          <%else%>
+            <p>Item: <%= link_to "#{card.name}", item_path(card) %></p>
+          <%end%>
+          <p>Merchant: <%= card.merchant.name %></p>
+          <p>Inventory Count: <%= card.inventory_count %></p>
+          <p>Price: <%= card.price %></p>
+          <% if current_admin? %>
             <% if card.active? %>
               <%=button_to 'Disable', { controller: 'admin/merchants',
                                         action: 'update',
@@ -32,38 +46,10 @@
                                         method: :patch,
                                         data: { confirm: 'Are you sure?' } %>
             <% end %>
-          <% else %>
-            <%= card.name%>
           <% end %>
         </div>
 
-      <% elsif card.class == User %>
-        <div class="img_url">
-          <%=image_tag(card.img_url) %>
-        </div>
-        <div class="card_info">
-          <% if current_admin? %>
-            <%=link_to card.name, admin_merchant_path(card)%>
-            <% if card.active? %>
-              <%=button_to 'Disable', { controller: 'admin/merchants',
-                                        action: 'update',
-                                        attribute: 'active',
-                                        id: card.id },
-                                        method: :patch,
-                                        data: { confirm: 'Are you sure?' } %>
-            <% else %>
-              <%= button_to 'Enable', { controller: 'admin/merchants',
-                                        action: 'update',
-                                        attribute: 'active',
-                                        id: card.id },
-                                        method: :patch,
-                                        data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          <% else %>
-            <%= card.name%>
-          <% end %>
-        </div>
-    <% end %>
+      </div>
     </div>
   <%end%>
-</div>
+  </div>

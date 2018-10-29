@@ -32,12 +32,22 @@ body {
 	background-color: #f4f4f4;
 }
 
-a {
+header a {
   color: #d1d8de;
   text-decoration: none;
 }
 
-a:hover {
+body a {
+	color: #718daa;
+	transition: .2s;
+	text-decoration: none;
+}
+
+body a:hover {
+	color: #183048;
+}
+
+header a:hover {
 	color: #718daa;
 }
 
@@ -167,21 +177,24 @@ header {
 
 .user img{
 	width: 50%;
+	margin: 0px;
 }
 
 .user_show_page{
 	display: grid;
 }
 
-.user_img {
-	 margin: 0px;
-}
 
 .user a {
 	display: grid;
 	color: blue;
 	text-decoration: underline;
 
+}
+
+.all_stuff {
+		display: grid;
+	grid-template-columns: 33% 33% 33%;
 }
 
 .all_user_info .user {
@@ -198,4 +211,35 @@ header {
 .user_info {
 	display: grid;
 	text-align: left;
+}
+
+.card_container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	align-items: center;
+	width: 100%;
+	margin: 20px;
+}
+
+.card_info {
+	font-size:small;
+	display: grid;
+	margin: 20px;
+}
+
+.card_img {
+	width: 20%;
+	text-align: center;
+}
+
+.card_container .card_img{
+	display: grid;
+	margin-left: 70px;
+
+}
+
+.img_box {
+	display: grid;
+	text-align: center;
+
 }

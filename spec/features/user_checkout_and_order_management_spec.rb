@@ -22,7 +22,7 @@ describe 'Order' do
   describe 'show page for user' do
     context 'order details block' do
       let(:order) { Order.last }
-      let(:grand_total) { "Total: #{Order.last.grand_total}" }
+      let(:grand_total) { "Total: $#{Order.last.grand_total}" }
       scenario { expect(page).to have_content(grand_total) }
       xscenario { expect(order_block).to have_content("Order status: pending") }
       xscenario { expect(order_block).to have_css("#cancel-order") }

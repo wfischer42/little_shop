@@ -16,7 +16,9 @@ class User < ApplicationRecord
   enum role: [:customer, :merchant, :admin]
 
   def merchant_orders
-    Order.joins(:items).where('items.user_id = ?', self.id)
+    Order.joins(:items)
+    .where('items.user_id = ?', self.id)
+    .order(:id)
   end
 
 end

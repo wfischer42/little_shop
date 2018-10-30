@@ -1,5 +1,22 @@
 <h1>All Items<h1>
-
+  <div class="item_index_stats">
+    <div class="most_popular_items">
+    <p>5 Most Popular Items: <ul><% @items.most_popular.each do |item| %>
+      <li><%=item.name%></li>
+    <%end%></ul><p>
+    </div>
+    <div class="least_popular_merchants">
+    <p>5 Most Popular Merchants: <ul><% @items.most_popular_merchants.each do |item| %>
+      <li><%=@users.find(item.user_id).name%></li>
+    <%end%></ul></p>
+    </div>
+    <div class="fastest_merchants">
+    <p>3 Fastest Order-Filling Merchants: </p>
+    </div>
+    <div class="slowest_merchant">
+    <p>3 Slowest Order-Filling Merchants: </p>
+    </div>
+  </div>
   <div class="all_items">
     <%= render partial: 'partial/card', object: @items, as: 'card_data' %>
   </div>

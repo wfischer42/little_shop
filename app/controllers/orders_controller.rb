@@ -11,4 +11,14 @@ class OrdersController < ApplicationController
     end
     redirect_to profile_orders_path
   end
+
+  def cancel
+    Order.find(params[:order_id]).update(status: :canceled)
+    @orders = current_user.orders
+    render :index
+  end
+
+  def show
+
+  end
 end

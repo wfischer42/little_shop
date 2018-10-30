@@ -18,4 +18,8 @@ class Order < ApplicationRecord
   def grand_total
     order_items.pluck('sum(item_price * item_quantity)').first
   end
+
+  def unit_quantity
+    order_items.pluck('sum(item_quantity)').first
+  end
 end

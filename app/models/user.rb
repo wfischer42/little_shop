@@ -15,4 +15,21 @@ class User < ApplicationRecord
 
   enum role: [:customer, :merchant, :admin]
 
+  def self.most_popular_merchants
+    select('users.*, sum(order_items.item_quantity) as total_orders')
+    .joins(items: :order_items)
+    .where('order_items.fulfilled = true')
+    .group('users.id')
+    .order('total_orders desc')
+    .limit(5)
+  end
+
+  def self.fastest_merchants
+    select('users.*, avg(order_items.updated_at - order_items.created_at) as fulfillment_time')
+    .joins(items: :order_items)
+    .where('order_items.fulfilled = true')
+    .group('users.id')
+    .order('fulfillment_time asc')
+    .limit(3)
+  end
 end

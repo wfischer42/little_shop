@@ -5,9 +5,9 @@
       <li><%=item.name%></li>
     <%end%></ul><p>
     </div>
-    <div class="least_popular_merchants">
-    <p>5 Most Popular Merchants: <ul><% @items.most_popular_merchants.each do |item| %>
-      <li><%=@users.find(item.user_id).name%></li>
+    <div class="most_popular_merchants">
+    <p>5 Most Popular Merchants: <ul><% @users.most_popular_merchants.each do |merchant| %>
+      <li><%=merchant.name%></li>
     <%end%></ul></p>
     </div>
     <div class="fastest_merchants">

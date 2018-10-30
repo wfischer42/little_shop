@@ -12,11 +12,11 @@ class User < ApplicationRecord
   validates_presence_of :password, :on => :create
 
   has_secure_password
-  has_many :orders
 
   enum role: [:customer, :merchant, :admin]
 
   def merchant_orders
     Order.joins(:items).where('items.user_id = ?', self.id)
   end
+
 end

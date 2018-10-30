@@ -34,7 +34,7 @@ def seed_order
   number_of_items = rand(1..6)
   new_items = @items.sample(number_of_items)
   customer = @customers.sample
-  order = Order.create(user: customer)
+  order = Order.create(user: customer, status: rand(0..2))
   rand(1..6).times do
     item = @items.sample
     order.order_items.create(item: item,
@@ -59,6 +59,6 @@ end
 
 30.times { seed_item }
 @items = Item.all
-100.times { seed_order }
+50.times { seed_order }
 
 add_login_paths

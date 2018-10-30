@@ -1,0 +1,11 @@
+<%= content_tag :div, id: "order-#{order.id}-info" do %>
+  <%= link_to "Order ##{order.id}", profile_order_path(order) %>
+  <%= "Date ordered: #{order.created_at}" %>
+  <%= "Last updated: #{order.updated_at}" %>
+  <%= "Order Size: #{order.unit_quantity} units" %>
+  <%= "Total: $#{order.grand_total}" %>
+  <%= "Order status: #{order.status}" %>
+  <% if order.pending? %>
+    <%= button_to "Cancel Order", cancel_path, method: "patch" %>
+  <% end %>
+<% end %>

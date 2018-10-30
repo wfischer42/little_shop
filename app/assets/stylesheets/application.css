@@ -195,6 +195,7 @@ header {
 .all_stuff {
 		display: grid;
 	grid-template-columns: 33% 33% 33%;
+	min-width: 1200px;
 }
 
 .all_user_info .user {
@@ -235,15 +236,18 @@ header {
 .card_container .card_img{
 	display: grid;
 	margin-left: 70px;
-
 }
 
 .img_box {
 	display: grid;
 	text-align: center;
-
 }
 
 .item_index_stats {
 	font-size: small;
+}
+
+img {
+	width: 150px;
+	padding-right: 10px;
 }

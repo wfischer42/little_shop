@@ -49,10 +49,4 @@ RSpec.describe 'any user visits the item index page' do
     end
   end
 
-  it 'sees top 5 most popular merchant' do
-    within(".item_index_stats .most_popular_merchants") do
-      
-
-    end
-  end
 end

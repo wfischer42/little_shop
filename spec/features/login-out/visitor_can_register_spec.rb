@@ -3,23 +3,21 @@ require 'rails_helper'
 describe 'User Register' do
   before { visit root_path }
 
-  context 'Email Already Exists Fails' do
+  it 'Register fails if Email Already Exists' do
+    @user_1 = create(:user, email: 'joe@joecodes.com')
+    click_link "Register"
+    fill_in :user_name, with: "Joe"
+    fill_in :user_address, with: "123 Main Street"
+    fill_in :user_city, with: "Fakeville"
+    fill_in :user_state, with: "Alabama"
+    fill_in :user_zip_code, with: 35622
+    fill_in :user_email, with: 'joe@joecodes.com'
+    fill_in :user_password, with: 'JoeIsTheCoolest'
+    fill_in :user_password_confirmation, with: 'JoeIsTheCoolest';
+    click_on "Create User"
 
-    subject do
-      @user_1 = create(:user, email: 'joe@joecodes.com')
-
-      click_link "Register"
-      fill_in :user_name, with: "Joe"
-      fill_in :user_address, with: "123 Main Street"
-      fill_in :user_city, with: "Fakeville"
-      fill_in :user_state, with: "Alabama"
-      fill_in :user_zip_code, with: 35622
-      fill_in :user_email, with: 'joe@joecodes.com'
-      fill_in :user_password, with: 'JoeIsTheCoolest'
-      fill_in :user_password_confirmation, with: 'JoeIsTheCoolest';
-      page
-    end
-    it { is_expected.to have_current_path(register_path) }
+    expect(current_path).to eq(register_path)
+    expect(page).to have_content("Email address is already in use")
 
   end
 

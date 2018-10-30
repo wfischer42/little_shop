@@ -1,0 +1,22 @@
+
+<div class="orders_card">
+  <table>
+    <tr>
+      <th>Order Id:</th>
+      <th>Created At:</th>
+      <th>Updated At:</th>
+      <th>Order Status:</th>
+    </tr>
+    <% orders.each do |order| %>
+    <tr>
+      <td><%= link_to "#{order.id}", merchant_order_path(order) %></td>
+      <td><%= order.created_at.strftime("%m-%d-%Y") %></td>
+      <td><%= order.updated_at.strftime("%m-%d-%Y") %></td>
+      <td><%= order.status %>
+      <% if order.pending? %>
+        <%= button_to "Cancel Order", cancel_path, method: "patch" %>
+      <% end %></td>
+    </tr>
+    <% end  %>
+  </table>
+</div>

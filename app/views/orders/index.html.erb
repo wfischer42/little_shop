@@ -1,5 +1,3 @@
-<% @orders.each do |order| %>
-  <%= render "/orders/order_info.html.erb",
-             order: order,
+  <%= render "/partial/order_info.html.erb",
+             orders: @orders,
              cancel_path: profile_order_cancel_path(order)  %>
-<% end %>

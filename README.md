@@ -511,7 +511,7 @@ If I left the image field blank, I see a placeholder image for the thumbnail
 ```
 
 ```
-36. [ ] done
+36. [X] done
 
 As a merchant
 When I try to add a new item

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Order' do
+describe 'User order management' do
   before do
     user = create(:user)
     @items = create_list(:item, 3)
@@ -12,7 +12,6 @@ describe 'Order' do
     click_button("checkout")
   end
   let(:order) { Order.last }
-
   describe 'cart checkout' do
     describe 'redirects to orders page' do
       scenario { expect(page).to have_current_path(profile_orders_path) }
@@ -22,10 +21,8 @@ describe 'Order' do
     end
   end
   describe 'show page for user' do
-    let(:order_block) { page.find("#order-#{order.id}-info") }
-
     context 'order details block' do
-      subject { order_block }
+      subject { page.find("#order-#{order.id}-info") }
       it { is_expected.to have_link    "Order ##{order.id}" }
       it { is_expected.to have_content "Date ordered: #{order.created_at}" }
       it { is_expected.to have_content "Last updated: #{order.updated_at}" }

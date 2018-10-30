@@ -21,17 +21,17 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(current_user.id)
+    @user = current_user
     @path = profile_path
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = current_user
     @url = profile_path
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = current_user
     if @user.update(user_params)
       flash[:success] = "User information Updated"
       redirect_to profile_path

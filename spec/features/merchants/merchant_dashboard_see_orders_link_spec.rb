@@ -75,9 +75,11 @@ describe 'Merchant dashboard' do
   end
 
   it 'merchat visits dashboard and click on orders id link to order show page' do
+
     visit merchant_orders_path
 
-    click_on "#{@order_1.id}"
+    click_on "#{@order_3.id}"
 
+    expect(current_path).to eq(merchant_order_path(@order_3))
   end
 end

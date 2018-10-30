@@ -491,7 +491,7 @@ I see the item is now enabled
 ```
 
 ```
-35. [ ] done
+35. [X] done
 
 As a merchant
 When I visit my items page

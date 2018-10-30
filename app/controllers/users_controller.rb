@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = User.find(current_user.id)
-    @order_is_empty = Order.joins(:items).where('items.user_id = ?', @user.id).empty?
+    @order_is_empty = @user.merchant_orders.empty?
   end
 
   private

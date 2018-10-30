@@ -452,7 +452,7 @@ My URI route should be "/dashboard/items"
 ```
 
 ```
-32. [ ] done
+32. [X] done
 
 As a merchant
 When I visit my items page
@@ -566,7 +566,7 @@ All content rules still apply (eg, item name cannot be blank, etc)
 ```
 
 ```
-40. [ ] done
+40. [X] done
 
 As any kind of user on the system
 I can visit the items catalog ("/items")

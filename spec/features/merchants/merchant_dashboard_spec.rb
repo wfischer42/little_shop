@@ -16,10 +16,9 @@ describe 'merchant views own dashboard' do
     expect(current_path).to eq(merchant_items_path)
   end
 
-  it 'has link to view merchant orders' do
+  it 'should not see the link to orders if users havent order any items form merchant ' do
 
-    click_link "My Orders"
-
-    expect(current_path).to eq(merchant_orders_path)
+    expect(page).to_not have_link("My Orders")
+    
   end
 end

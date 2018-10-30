@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: e04ce964cbcdbfa9519b536d0c962328e690092d
+  revision: 723d7807516a425daead8f5e01e74b99515c0d1c
   branch: master
   specs:
     faker (1.9.1)
@@ -96,7 +96,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)

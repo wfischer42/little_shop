@@ -1,49 +1,54 @@
-<h1>Your Cart</h1>
+<% if cart.cart_total == 0 %>
+  <h1>Your Cart Is Empty!</h1>
+  <h2>Please add <%= link_to "items", items_path %> to continue</h2>
+<% else %>
+  <h1>Your Cart</h1>
 
-<%= link_to "Empty Cart", cart_items_path, method: :delete, data: {confirm: "Are you sure?"} %>
+  <%= link_to "Empty Cart", cart_items_path, method: :delete, data: {confirm: "Are you sure?"} %>
 
-<table>
-  <tr>
-    <th>Picture</th>
-    <th>Item</th>
-    <th>Price</th>
-    <th>Sold By</th>
-    <th>Add</th>
-    <th>Decrease</th>
-    <th>Quantity</th>
-    <th>Subtotal</th>
-    <th></th>
-  </tr>
-<% @cart_items.each do |ci| %>
-  <tr>
-    <td> <img src="<%= ci.img_url %>", class="pic"></td>
-    <td><%= ci.name %></td>
-    <td><%= number_to_currency(ci.price) %></td>
-    <td><%= ci.merchant.name %></td>
-    <td class="add_button-#{ci.id}">
-      <% if ci.quant == ci.inventory_count %><%= button_to "+", "/cart_items/#{ci.id}/add", disabled: true %>
-      <% else %><%= button_to "+", "/cart_items/#{ci.id}/add" %></td>
-      <% end %>
-    <td class="minus_button-#{ci.id}">
-      <% if ci.quant == 1 %><%= button_to '-', cart_items_path(item_id: ci.id), method: :delete%>
-      <% else %><%= button_to "-", "/cart_items/#{ci.id}/minus" %>
-      <% end %>
-    </td>
+  <table>
+    <tr>
+      <th>Picture</th>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Sold By</th>
+      <th>Add</th>
+      <th>Decrease</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th></th>
+    </tr>
+  <% @cart_items.each do |ci| %>
+    <tr>
+      <td> <img src="<%= ci.img_url %>", class="pic"></td>
+      <td><%= ci.name %></td>
+      <td><%= number_to_currency(ci.price) %></td>
+      <td><%= ci.merchant.name %></td>
+      <td class="add_button-#{ci.id}">
+        <% if ci.quant == ci.inventory_count %><%= button_to "+", "/cart_items/#{ci.id}/add", disabled: true %>
+        <% else %><%= button_to "+", "/cart_items/#{ci.id}/add" %></td>
+        <% end %>
+      <td class="minus_button-#{ci.id}">
+        <% if ci.quant == 1 %><%= button_to '-', cart_items_path(item_id: ci.id), method: :delete%>
+        <% else %><%= button_to "-", "/cart_items/#{ci.id}/minus" %>
+        <% end %>
+      </td>
 
-    <td class="quantity-<%= ci.id %>"><%= ci.quant %></td>
-    <td class="sub-<%= ci.id %>"><%= number_to_currency(ci.sub(ci)) %></td>
-    <td class="remove_item-#{ci.id}"><%= button_to 'Remove', cart_items_path(item_id: ci.id), method: :delete%></td>
+      <td class="quantity-<%= ci.id %>"><%= ci.quant %></td>
+      <td class="sub-<%= ci.id %>"><%= number_to_currency(ci.sub(ci)) %></td>
+      <td class="remove_item-#{ci.id}"><%= button_to 'Remove', cart_items_path(item_id: ci.id), method: :delete%></td>
 
-  </tr>
-  <% end %>
-</table>
-Grand Total: <%= number_to_currency(cart.cart_total) %>
+    </tr>
+    <% end %>
+  </table>
+  Grand Total: <%= number_to_currency(cart.cart_total) %>
 
-<% if cart.cart_total > 0 %>
-  <% if current_user %>
-    <%= button_to "Checkout", profile_orders_path, id: "checkout" %>
-  <% else %>
-    <p class='checkout-login'><%= link_to "Login", login_path %>
-    <p class='checkout-register'><%= link_to "Register", register_path %>
+  <% if cart.cart_total > 0 %>
+    <% if current_user %>
+      <%= button_to "Checkout", profile_orders_path, id: "checkout" %>
+    <% else %>
+      <p class='checkout-login'><%= link_to "Login", login_path %>
+      <p class='checkout-register'><%= link_to "Register", register_path %>
+    <% end %>
   <% end %>
 <% end %>

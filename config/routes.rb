@@ -33,14 +33,18 @@ Rails.application.routes.draw do
     end
   end
 
+  scope as: :profile, path: :profile do
+    resources :orders, only: [:index, :create, :show] do
+      patch '/cancel', to: 'orders#cancel'
+    end
+  end
+
   root  'welcome#index'
   get   '/register',           to: 'users#new'
   post  '/register',           to: 'users#create'
   get   '/profile/edit',       to: 'users#edit'
   patch '/profile',            to: 'users#update'
   get   '/profile',            to: 'users#profile'
-  get   '/profile/orders',     to: 'orders#index'
-  post  '/profile/orders',     to: 'orders#create'
   get   '/dashboard',          to: 'users#dashboard'
   get   '/login',              to: 'sessions#new'
   post  '/login',              to: 'sessions#create'

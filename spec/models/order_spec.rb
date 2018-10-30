@@ -38,5 +38,14 @@ RSpec.describe Order, type: :model do
       subject { @order.grand_total }
       it { is_expected.to eq(ruby_total)}
     end
+    describe '.unit_quantity' do
+      let(:ruby_unit_quantity) do
+        @order.order_items.inject(0) do |count, item|
+          count += item.item_quantity
+        end
+      end
+      subject { @order.unit_quantity }
+      it { is_expected.to eq(ruby_unit_quantity)}
+    end
   end
 end

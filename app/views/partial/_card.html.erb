@@ -23,7 +23,7 @@
           <%end%>
           <p>Merchant: <%= card.merchant.name %></p>
           <p>Inventory Count: <%= card.inventory_count %></p>
-          <p>Price: <%= card.price %></p>
+          <p>Price: <%= number_to_currency(card.price) %></p>
           <% if current_admin? %>
             <% if card.active? %>
               <%=button_to 'Disable', { controller: 'admin/merchants',

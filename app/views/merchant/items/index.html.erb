@@ -1,4 +1,5 @@
 <h1>My Items</h1>
+<%= link_to "Add New Item", new_merchant_item_path %>
 <div class="all_stuff">
 <% @items.each do |card| %>
   <div id="card<%= card.id %>" class="card">

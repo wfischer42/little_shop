@@ -10,6 +10,7 @@ describe 'Merchant items index' do
   end
 
   it 'lets merchant view their items only' do
+    expect(page).to have_link("Add New Item")
     expect(page).to have_content(@item.name)
     expect(page).to have_content(@item.id)
     expect(page).to have_content(@item.price)

@@ -18,12 +18,12 @@ describe 'any user can interact with a cart' do
     expect(current_path).to eq(cart_path)
     expect(page).to have_content(@item.name)
     expect(page).to have_content(@item.merchant.name)
-    expect(page).to have_content(@item.price)
+    expect(page).to have_content(number_to_currency(@item.price))
     within("td.quantity-#{@item.id}")do
       expect(page).to have_content(2)
     end
     within("td.sub-#{@item.id}")do
-      expect(page).to have_content(@item.price * 2)
+      expect(page).to have_content(number_to_currency(@item.price * 2))
     end
 
     visit item_path(@item_2)
@@ -32,7 +32,7 @@ describe 'any user can interact with a cart' do
     expect(current_path).to eq(cart_path)
     expect(page).to have_content(@item_2.name)
     expect(page).to have_content(@item_2.merchant.name)
-    expect(page).to have_content(@item_2.price)
+    expect(page).to have_content(number_to_currency(@item_2.price))
     within("td.quantity-#{@item_2.id}")do
       expect(page).to have_content(1)
     end

@@ -32,4 +32,10 @@ class User < ApplicationRecord
     .order('fulfillment_time asc')
     .limit(3)
   end
+
+  def merchant_orders
+    Order.joins(:items)
+    .where('items.user_id = ?', self.id)
+    .order(:id)
+  end
 end

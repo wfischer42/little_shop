@@ -1,1 +1,4 @@
 <%= link_to "My Items", merchant_items_path %>
+<% if !@order_is_empty %>
+  <%= link_to "My Orders", merchant_orders_path %>
+<% end  %>

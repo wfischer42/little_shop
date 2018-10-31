@@ -442,7 +442,7 @@ then I am redirected to "/users/8" and see their user profile page
 ### "Items" CRUD
 
 ```
-31. [ ] done
+31. [X] done
 
 As a merchant
 When I visit my dashboard page ("/dashboard")
@@ -452,7 +452,7 @@ My URI route should be "/dashboard/items"
 ```
 
 ```
-32. [ ] done
+32. [X] done
 
 As a merchant
 When I visit my items page
@@ -469,7 +469,7 @@ If the item is disabled, I see a button or link to enable the item
 ```
 
 ```
-33. [ ] done
+33. [X] done
 
 As a merchant
 When I visit my items page
@@ -480,7 +480,7 @@ I see the item is now disabled
 ```
 
 ```
-34. [ ] done
+34. [X] done
 
 As a merchant
 When I visit my items page
@@ -491,7 +491,7 @@ I see the item is now enabled
 ```
 
 ```
-35. [ ] done
+35. [X] done
 
 As a merchant
 When I visit my items page
@@ -511,7 +511,7 @@ If I left the image field blank, I see a placeholder image for the thumbnail
 ```
 
 ```
-36. [ ] done
+36. [X] done
 
 As a merchant
 When I try to add a new item
@@ -566,7 +566,7 @@ All content rules still apply (eg, item name cannot be blank, etc)
 ```
 
 ```
-40. [ ] done
+40. [X] done
 
 As any kind of user on the system
 I can visit the items catalog ("/items")

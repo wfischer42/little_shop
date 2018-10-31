@@ -1,0 +1,20 @@
+
+<div class="orders_card">
+
+  <table>
+    <tr>
+      <th>Order Id:</th>
+      <th>Created At:</th>
+      <th>Updated At:</th>
+      <th>Order Status:</th>
+    </tr>
+    <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.created_at.strftime("%m-%d-%Y") %></td>
+      <td><%= order.updated_at.strftime("%m-%d-%Y") %></td>
+      <td><%= order.status %></td>
+    </tr>
+    <% end  %>
+  </table>
+</div>

@@ -23,12 +23,18 @@ Rails.application.routes.draw do
   end
 
   scope module: :merchant, path: :dashboard, as: :merchant do
-    resources :items, only: [:index, :show, :edit, :update] do
+    resources :items, only: [:index, :show, :edit, :update, :new, :create] do
       patch '/enable', to: 'items#enable'
       patch '/disable', to: 'items#disable'
     end
 
     resources :orders, only: [:index, :show, :edit, :update] do
+      patch '/cancel', to: 'orders#cancel'
+    end
+  end
+
+  scope as: :profile, path: :profile do
+    resources :orders, only: [:index, :create, :show] do
       patch '/cancel', to: 'orders#cancel'
     end
   end
@@ -39,8 +45,6 @@ Rails.application.routes.draw do
   get   '/profile/edit',       to: 'users#edit'
   patch '/profile',            to: 'users#update'
   get   '/profile',            to: 'users#profile'
-  get   '/profile/orders',     to: 'orders#index'
-  post  '/profile/orders',     to: 'orders#create'
   get   '/dashboard',          to: 'users#dashboard'
   get   '/login',              to: 'sessions#new'
   post  '/login',              to: 'sessions#create'

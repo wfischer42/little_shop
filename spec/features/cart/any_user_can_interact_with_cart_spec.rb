@@ -47,7 +47,9 @@ describe 'any user can interact with a cart' do
     expect(current_path).to eq(cart_path)
     expect(page).to_not have_content(@item.name)
     expect(page).to_not have_content(@item_2.name)
-    expect(page).to have_content("Grand Total: $0.00")
+    expect(page).to have_content("Your Cart Is Empty")
+    expect(page).to have_content("Please add items to continue!")
+    expect(page).to have_link('items')
     expect(page).to have_content("Cart = 0")
   end
 

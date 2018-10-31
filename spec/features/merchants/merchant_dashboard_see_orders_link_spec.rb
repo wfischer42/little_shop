@@ -57,8 +57,8 @@ describe 'Merchant dashboard' do
   it "merchant visits dashboard and goes to orders" do
     visit dashboard_path
 
-    click_on "My Orders"
-    
+    click_on "Orders From Store"
+
     expect(current_path).to eq(merchant_orders_path)
     expect(page).to have_content(@order_1.id)
     expect(page).to have_content(@order_1.created_at.strftime("%m-%d-%Y"))

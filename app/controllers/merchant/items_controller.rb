@@ -54,6 +54,6 @@ class Merchant::ItemsController < Merchant::BaseController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :inventory_count)
+    params.require(:item).permit(:name, :description, :img_url, :price, :inventory_count)
   end
 end

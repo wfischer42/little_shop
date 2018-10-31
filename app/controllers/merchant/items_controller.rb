@@ -22,6 +22,11 @@ class Merchant::ItemsController < Merchant::BaseController
     end
   end
 
+  def edit
+    @user = User.find(current_user.id)
+    @item = @user.items.find(params[:id])
+  end
+
   def update
     item = Item.find(params[:id])
     if params[:attribute] == 'active'
@@ -33,6 +38,14 @@ class Merchant::ItemsController < Merchant::BaseController
         item.update(active: true)
         flash[:notice] = "#{item.name} is back on the market."
         redirect_to merchant_items_path
+      end
+    else
+      if item.update(item_params)
+        flash[:success] = "Item Updated"
+        redirect_to merchant_items_path
+      else
+        flash[:notice] = "Error"
+        render :edit
       end
     end
   end

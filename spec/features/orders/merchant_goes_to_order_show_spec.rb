@@ -22,6 +22,7 @@ describe 'merchant visits order show' do
 
 
     visit merchant_order_path(order_1)
+
     expect(page).to have_link(item_1.name)
     expect(page).to have_link(item_2.name)
     expect(page).to have_link(item_3.name)

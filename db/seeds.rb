@@ -39,7 +39,8 @@ def seed_order
     item = @items.sample
     order.order_items.create(item: item,
                              item_quantity: rand(1..10),
-                             item_price: item.price)
+                             item_price: item.price,
+                             fulfilled: Faker::Boolean.boolean)
   end
 end
 

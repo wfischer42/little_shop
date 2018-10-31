@@ -7,16 +7,15 @@
       <th>Updated At:</th>
       <th>Order Status:</th>
     </tr>
-    <% orders.each do |order| %>
+    <% @orders.each do |order| %>
     <tr>
       <td><%= link_to "#{order.id}", merchant_order_path(order) %></td>
       <td><%= order.created_at.strftime("%m-%d-%Y") %></td>
       <td><%= order.updated_at.strftime("%m-%d-%Y") %></td>
       <td><%= order.status %>
       <% if order.pending? %>
-        <%= button_to "Cancel Order", cancel_path, method: "patch" %>
+        <%= button_to "Cancel Order", "#{prefix:}_order_cancel(order)", method: "patch" %>
       <% end %></td>
     </tr>
-    <% end  %>
   </table>
 </div>

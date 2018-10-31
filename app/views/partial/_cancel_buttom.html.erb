@@ -1,9 +1,1 @@
-<% if order.pending? %>
-    <% if current_admin? %>
-      <%= button_to "Cancel Order", admin_order_cancel_path(order), method: "patch" %>
-    <% elsif current_merchant? %>
-      <%= button_to "Cancel Order", merchant_order_cancel_path(order), method: "patch" %>
-    <% else %>
-      <%= button_to "Cancel Order", profile_order_cancel_path(order), method: "patch" %>
-    <% end  %>
-<% end %>
+

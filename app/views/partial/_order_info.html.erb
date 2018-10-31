@@ -1,12 +1,19 @@
-<%= content_tag :div, id: "order-#{order.id}-info" do %>
-<table>
-  
-</table>
-  <%= link_to "Order ##{order.id}", profile_order_path(order) %>
-  <%= "Date ordered: #{order.created_at}" %>
-  <%= "Last updated: #{order.updated_at}" %>
-  <%= "Order Size: #{order.unit_quantity} units" %>
-  <%= "Total: $#{order.grand_total}" %>
-  <%= "Order status: #{order.status}" %>
-  <%= render "/partial/cancel_buttom", order: order %>
-<% end %>
+<div class="order_container" id="order-<%= @order.id %>-info">
+  <ul>
+    <li><%=link_to "Order ##{@order.id}", profile_order_path(@order) %></li>
+    <li><%= "Date ordered: #{@order.created_at}" %></li>
+    <li><%= "Last updated: #{@order.updated_at}" %></li>
+    <li><%= "Order Size: #{@order.unit_quantity} units" %></li>
+    <li><%= "Total: $#{@order.grand_total}" %></li>
+    <li><%= "Order status: #{@order.status}" %></li>
+    <li><% if @order.pending? %>
+        <% if current_admin? %>
+          <%= button_to "Cancel Order", admin_order_cancel_path(@order), method: "patch" %>
+        <% elsif current_merchant? %>
+          <%= button_to "Cancel Order", merchant_order_cancel_path(@order), method: "patch" %>
+        <% else %>
+          <%= button_to "Cancel Order", profile_order_cancel_path(@order), method: "patch" %>
+        <% end  %>
+    <% end %></li>
+  </ul>
+</div>

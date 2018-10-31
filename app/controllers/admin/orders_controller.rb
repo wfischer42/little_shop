@@ -1,9 +1,5 @@
 class Admin::OrdersController < Admin::BaseController
   def index
-    @orders = Order.all
-  end
-
-  def show
     if params[:merchant_id]
       merchant = User.find(params[:merchant_id])
       @orders = merchant.merchant_orders

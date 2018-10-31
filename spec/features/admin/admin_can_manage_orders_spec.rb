@@ -47,8 +47,8 @@ describe 'Admin order privileges' do
       it { is_expected.to have_css("#order-#{orders[1].id}-info")}
       it { is_expected.to_not have_css("#order-#{orders[2].id}-info")}
       it { is_expected.to_not have_css("#order-#{orders[3].id}-info")}
-      it { is_expected.to have_content "#{orders[0].created_at}" }
-      it { is_expected.to have_content "#{orders[0].updated_at}" }
+      it { is_expected.to have_content "#{orders[0].created_at.strftime("%m-%d-%Y")}" }
+      it { is_expected.to have_content "#{orders[0].updated_at.strftime("%m-%d-%Y")}" }
       it { is_expected.to have_content "#{orders[0].unit_quantity}" }
       it { is_expected.to have_content "#{number_to_currency(orders[0].grand_total)}" }
       it { is_expected.to have_content "#{orders[0].status}" }
@@ -71,8 +71,8 @@ describe 'Admin order privileges' do
       expect(page).to have_css("#order-#{orders[1].id}-info")
       expect(page).to_not have_css("#order-#{orders[2].id}-info")
       expect(page).to_not have_css("#order-#{orders[3].id}-info")
-      expect(page).to have_content "#{orders[0].created_at}"
-      expect(page).to have_content "#{orders[0].updated_at}"
+      expect(page).to have_content "#{orders[0].created_at.strftime("%m-%d-%Y")}"
+      expect(page).to have_content "#{orders[0].updated_at.strftime("%m-%d-%Y")}"
       expect(page).to have_content "#{orders[0].unit_quantity}"
       expect(page).to have_content "#{number_to_currency(orders[0].grand_total)}"
       expect(page).to have_content "#{orders[0].status}"

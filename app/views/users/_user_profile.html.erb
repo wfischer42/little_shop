@@ -4,7 +4,7 @@
       <img src="<%=@user.user_img_url%>" class="user_img">
       <div class="user_info">
         <h1><%=@user.name%></h1>
-        <p><%= @user.email %><br>
+        <p>Email: <%= @user.email %><br>
         <%= @user.address %> <br><%= @user.city %>, <%= @user.state %>, <%= @user.zip_code %></p>
         <% if current_admin? && @path != profile_path %>
           <h3>Status:
@@ -37,8 +37,10 @@
                                         data: { confirm: 'Are you sure?' } %>
             <%end%>
         <% else %>
-          <%= link_to "View Orders", profile_orders_path, id: "order_page_link" %>
-          <%= link_to "Update Profile", profile_edit_path  %>
+          <% if @user.orders.count > 0 %>
+            <%= link_to "View Orders", profile_orders_path, id: "order_page_link" %>
+          <% end %>
+            <%= link_to "Update Profile", profile_edit_path  %>
         <% end %>
       </div>
       <div class="stats">

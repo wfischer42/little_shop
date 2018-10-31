@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'User order management' do
+  include ActionView::Helpers::NumberHelper
   before do
     user = create(:user)
     @items = create_list(:item, 3)
@@ -20,15 +21,15 @@ describe 'User order management' do
       scenario { expect(order.items).to eq(@items)}
     end
   end
-  describe 'show page for user' do
+  describe 'Order index page for user' do
     context 'order details block' do
       subject { page.find("#order-#{order.id}-info") }
-      it { is_expected.to have_link    "Order ##{order.id}" }
-      it { is_expected.to have_content "Date ordered: #{order.created_at}" }
-      it { is_expected.to have_content "Last updated: #{order.updated_at}" }
-      it { is_expected.to have_content "Order Size: #{order.unit_quantity} units" }
-      it { is_expected.to have_content "Total: $#{order.grand_total}" }
-      it { is_expected.to have_content "Order status: pending" }
+      it { is_expected.to have_link "#{order.id}" }
+      it { is_expected.to have_content "#{order.created_at.strftime("%m-%d-%Y")}" }
+      it { is_expected.to have_content "#{order.updated_at.strftime("%m-%d-%Y")}" }
+      it { is_expected.to have_content "#{order.unit_quantity}" }
+      it { is_expected.to have_content "#{number_to_currency(order.grand_total)}" }
+      it { is_expected.to have_content "pending" }
       it { is_expected.to have_button  "Cancel Order" }
       context 'after cancellation' do
         before do
@@ -40,8 +41,26 @@ describe 'User order management' do
       end
     end
   end
-  describe 'page after clicking order-id link' do
-    subject {click_on "Order ##{order.id}"; page}
-    it { is_expected.to have_current_path(profile_order_path(order))}
+  describe 'show page for user' do
+    before { click_link "#{order.id}" }
+    context 'order details block' do
+      subject { page.find("#order-#{order.id}-info") }
+      it { is_expected.to have_content "Order #{order.id}" }
+      it { is_expected.to have_content "Date ordered: #{order.created_at.strftime("%m-%d-%Y")}" }
+      it { is_expected.to have_content "Last updated: #{order.updated_at.strftime("%m-%d-%Y")}" }
+      it { is_expected.to have_content "Order Size: #{order.unit_quantity} units" }
+      it { is_expected.to have_content "Total: #{number_to_currency(order.grand_total)}" }
+      it { is_expected.to have_content "Order status: pending" }
+      it { is_expected.to have_button  "Cancel Order" }
+      context 'after cancellation' do
+
+        before do
+          user = User.first
+          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+          click_on "Cancel Order"
+        end
+        it { is_expected.to have_content "Order status: canceled" }
+      end
+    end
   end
 end

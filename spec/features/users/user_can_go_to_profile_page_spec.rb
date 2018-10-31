@@ -4,7 +4,7 @@ describe 'User (customer,merchant,admin) can see profile' do
 
   before do
     @user_1 = create(:user)
-
+    order = create(:order, user: @user_1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
     visit profile_path

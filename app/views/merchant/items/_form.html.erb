@@ -9,7 +9,7 @@
   <br>
   <%= f.label :img_url %>
   <br>
-  <%= f.text_field :img_url %>
+  <%= f.text_field :img_url, placeholder: "" %>
   <br>
   <%= f.label :price %>
   <br>
@@ -17,7 +17,7 @@
   <br>
   <%= f.label :inventory_count %>
   <br>
-  <%= f.number_field :inventory_count, min: '1' %>
+  <%= f.number_field :inventory_count, min: '1', step: '1', placeholder: "1" %>
   <br>
   <%= f.submit %>
 <% end  %>

@@ -11,10 +11,14 @@
     <%end%></ul></p>
     </div>
     <div class="fastest_merchants">
-    <p>3 Fastest Order-Filling Merchants: </p>
+    <p>3 Fastest Order-Filling Merchants: <ul><% @users.fastest_merchants.each do |merchant| %>
+      <li><%=merchant.name%></li>
+    <%end%></ul></p>
     </div>
-    <div class="slowest_merchant">
-    <p>3 Slowest Order-Filling Merchants: </p>
+    <div class="slowest_merchants">
+    <p>3 Slowest Order-Filling Merchants: <ul><% @users.slowest_merchants.each do |merchant| %>
+      <li><%=merchant.name%></li>
+    <%end%></ul></p>
     </div>
   </div>
   <div class="all_items">

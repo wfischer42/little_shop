@@ -38,4 +38,13 @@ class User < ApplicationRecord
     .where('items.user_id = ?', self.id)
     .order(:id)
   end
+
+  def self.slowest_merchants
+    select('users.*, avg(order_items.updated_at - order_items.created_at) as fulfillment_time')
+    .joins(items: :order_items)
+    .where('order_items.fulfilled = true')
+    .group('users.id')
+    .order('fulfillment_time desc')
+    .limit(3)
+  end
 end

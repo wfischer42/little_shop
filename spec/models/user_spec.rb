@@ -61,6 +61,10 @@ RSpec.describe User, type: :model do
   it '.fastest_merchants' do
     expect(User.fastest_merchants).to eq([@merchant_1, @merchant_2, @merchant_3])
   end
+
+  it '.slowest_merchants' do
+    expect(User.slowest_merchants).to eq([@merchant_5, @merchant_4, @merchant_3])
+  end
 end
 
   describe ' Instance Methods' do

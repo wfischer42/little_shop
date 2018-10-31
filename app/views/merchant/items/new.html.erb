@@ -1,23 +1,4 @@
-<%= form_for [:merchant, @item], url: @url do |f| %>
-  <%= f.label :name %>
-  <br>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :description %>
-  <br>
-  <%= f.text_area :description %>
-  <br>
-  <%= f.label :img_url %>
-  <br>
-  <%= f.text_field :img_url %>
-  <br>
-  <%= f.label :price %>
-  <br>
-  <%= f.number_field :price, min: '0' %>
-  <br>
-  <%= f.label :inventory_count %>
-  <br>
-  <%= f.number_field :inventory_count, min: '0' %>
-  <br>
-  <%= f.submit %>
-<% end  %>
+<h1>Add New Item</h1>
+<% @url = merchant_items_path %>
+
+<%=render partial: 'form', url: @url %>

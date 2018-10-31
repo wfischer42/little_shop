@@ -39,8 +39,8 @@ include ActionView::Helpers::NumberHelper
       expect(page).to have_content(@item_2.price)
     end
     expect(page).to have_content("Cart = 3")
-    grand_total = number_to_currency((@item_2.price) + (@item.price * 2))
-    expect(page).to have_content("Grand Total: #{grand_total}")
+    grand_total = (@item_2.price) + (@item.price * 2)
+    expect(page).to have_content("Grand Total: #{number_to_currency(grand_total)}")
 
     click_on "Empty Cart"
 

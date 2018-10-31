@@ -3,10 +3,6 @@ class Admin::OrdersController < Admin::BaseController
     @orders = Order.all
   end
 
-  def show
-    @order = Order.find(params[:id])
-  end
-
   def cancel
     @order = Order.find(params[:order_id])
     @order.update(status: :canceled)

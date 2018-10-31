@@ -3,9 +3,14 @@ class Admin::OrdersController < Admin::BaseController
     @orders = Order.all
   end
 
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def cancel
-    Order.find(params[:order_id]).update(status: :canceled)
+    @order = Order.find(params[:order_id])
+    @order.update(status: :canceled)
     @orders = Order.all
-    render :index
+    render :show
   end
 end

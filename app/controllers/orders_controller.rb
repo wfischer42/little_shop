@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @orders = current_user.orders
+    
   end
 
   def create
@@ -13,12 +14,13 @@ class OrdersController < ApplicationController
   end
 
   def cancel
-    Order.find(params[:order_id]).update(status: :canceled)
-    @orders = current_user.orders
-    render :index
+    @order = Order.find(params[:order_id])
+    @order.update(status: :canceled)
+    @orders = Order.all
+    render :show
   end
 
   def show
-
+    @order = Order.find(params[:id])
   end
 end

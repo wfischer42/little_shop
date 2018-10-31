@@ -36,8 +36,10 @@
                                         data: { confirm: 'Are you sure?' } %>
             <%end%>
         <% else %>
-          <%= link_to "View Orders", profile_orders_path, id: "order_page_link" %>
-          <%= link_to "Update Profile", profile_edit_path  %>
+          <% if @user.orders.count > 0 %>
+            <%= link_to "View Orders", profile_orders_path, id: "order_page_link" %>
+          <% end %>
+            <%= link_to "Update Profile", profile_edit_path  %>
         <% end %>
       </div>
       <div class="stats">

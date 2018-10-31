@@ -30,9 +30,9 @@ describe 'Admin order privileges' do
   describe 'merchant orders' do
     let(:merchs) { create_list(:user, 2, role: :merchant) }
     before do
-      items = create_list(:item, 5, merchant: merchs[0])
+      items = create_list(:item, 2, merchant: merchs[0])
       2.times { |n| order_items = create(:order_item, item: items[n]) }
-      items = create_list(:item, 5, merchant: merchs[1])
+      items = create_list(:item, 2, merchant: merchs[1])
       2.times { |n| order_items = create(:order_item, item: items[n]) }
       visit admin_merchant_path(merchs[0])
     end
@@ -50,8 +50,32 @@ describe 'Admin order privileges' do
       it { is_expected.to have_content "#{orders[0].created_at}" }
       it { is_expected.to have_content "#{orders[0].updated_at}" }
       it { is_expected.to have_content "#{orders[0].unit_quantity}" }
-      it { is_expected.to have_content "#{convert_to_currency(orders[0].grand_total)}" }
+      it { is_expected.to have_content "#{number_to_currency(orders[0].grand_total)}" }
       it { is_expected.to have_content "#{orders[0].status}" }
+    end
+  end
+  describe 'User orders' do
+    let(:users) { create_list(:user, 2) }
+    before do
+      2.times { |n| orders = create_list(:order, 2, user: users[n]) }
+      visit admin_user_path(users[0])
+    end
+    let(:orders) { Order.all}
+    describe '/user/:id page (profile)' do
+      scenario { expect(page).to have_link 'View Orders'}
+    end
+    it 'links to /user/:id/orders page and shows user orders' do
+      click_link 'View Orders'
+      expect(page).to have_current_path(admin_user_orders_path(users[0]))
+      expect(page).to have_css("#order-#{orders[0].id}-info")
+      expect(page).to have_css("#order-#{orders[1].id}-info")
+      expect(page).to_not have_css("#order-#{orders[2].id}-info")
+      expect(page).to_not have_css("#order-#{orders[3].id}-info")
+      expect(page).to have_content "#{orders[0].created_at}"
+      expect(page).to have_content "#{orders[0].updated_at}"
+      expect(page).to have_content "#{orders[0].unit_quantity}"
+      expect(page).to have_content "#{number_to_currency(orders[0].grand_total)}"
+      expect(page).to have_content "#{orders[0].status}"
     end
   end
 end

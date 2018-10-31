@@ -4,7 +4,7 @@ class Admin::OrdersController < Admin::BaseController
       merchant = User.find(params[:merchant_id])
       @orders = merchant.merchant_orders
     elsif params[:user_id]
-      
+      @orders = User.find(params[:user_id]).orders
     else
       @orders = Order.all
     end

@@ -47,4 +47,23 @@ class User < ApplicationRecord
     .order('fulfillment_time desc')
     .limit(3)
   end
+
+  def self.biggest_spenders
+    select('users.name, sum(order_items.item_quantity * order_items.item_price) as total_spending')
+    .joins(orders: :order_items)
+    .where('order_items.fulfilled = true')
+    .group('users.name')
+    .order('total_spending desc')
+    .limit(3)
+  end
+
+  def self.top_selling_merchants
+    select('users.*, sum(order_items.item_quantity * order_items.item_price) as total_profit')
+    .joins(items: :order_items)
+    .where('order_items.fulfilled = true')
+    .group('users.id')
+    .order('total_profit asc')
+    .limit(3)
+  end
+
 end

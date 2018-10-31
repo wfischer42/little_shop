@@ -11,6 +11,13 @@
       </div></li>
       <li>Price: <%= number_to_currency(item.price) %></li>
       <li>Item Quantity: <%= item.order_quantity(@order) %></li>
+      <%= button_to "Fulfill", { controller: 'merchant/order_items',
+                                  action: 'update',
+                                  attribute: 'fulfilled',
+                                  item_id: item.id,
+                                  order_id: @order.id},
+                                  method: :patch,
+                                  data: { confirm: 'Are you sure?'} %>
     </ul>
   <% end  %>
 

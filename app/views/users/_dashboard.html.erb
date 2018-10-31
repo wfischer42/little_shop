@@ -1,4 +1,11 @@
+<h1>My Dashboard</h1>
+
 <%= link_to "My Items", merchant_items_path %>
+<br>
+<% if current_admin? %>
+  <%= link_to "All Orders", admin_orders_path %>
+  <br>
+<% end %>
 <% if !@order_is_empty %>
-  <%= link_to "My Orders", merchant_orders_path %>
+  <%= link_to "Orders From Store", merchant_orders_path %>
 <% end  %>

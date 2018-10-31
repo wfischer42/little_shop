@@ -315,7 +315,7 @@ Any items I had in my shopping cart are deleted
 ### "Merchant" CRUD
 
 ```
-20. [ ] done
+20. [X] done
 
 As a merchant user
 When I visit my dashboard ("/dashboard)
@@ -511,7 +511,7 @@ If I left the image field blank, I see a placeholder image for the thumbnail
 ```
 
 ```
-36. [ ] done
+36. [X] done
 
 As a merchant
 When I try to add a new item
@@ -522,7 +522,7 @@ All fields are re-populated with my previous data
 ```
 
 ```
-37. [ ] done
+37. [X] done
 
 As a merchant
 When I visit my items page
@@ -542,7 +542,7 @@ If I left the image field blank, I see a placeholder image for the thumbnail
 ```
 
 ```
-38. [ ] done
+38. [X] done
 
 As a merchant
 When I try to edit an existing item
@@ -672,7 +672,7 @@ I see a button or link indicating that I can check out
 ### "Order" CRUD
 
 ```
-48. [ ] done
+48. [X] done
 
 As a registered user, merchant, or admin
 When I visit my cart
@@ -682,7 +682,7 @@ I am taken to my orders page ("/profile/orders")
 ```
 
 ```
-49. [ ] done
+49. [X] done
 
 As a registered user, merchant, or admin
 When I visit my orders page
@@ -699,7 +699,7 @@ And I see that order has an updated status of "cancelled"
 ```
 
 ```
-50. [ ] done
+50. [X] done
 
 As a merchant
 When I visit my dashboard
@@ -713,7 +713,7 @@ Each order will show the following information:
 ```
 
 ```
-51. [ ] done
+51. [X] done
 
 As a merchant
 When I visit my merchant orders page
@@ -811,7 +811,7 @@ I see an area with statistics:
 ### Security
 
 ```
-58. [ ] done
+58. [X] done
 
 As an admin user
 I should have basic CRUD functionality for all content
@@ -819,7 +819,7 @@ Except deleting content
 ```
 
 ```
-59. [ ] done
+59. [X] done
 
 As a merchant user
 I can only view my own merchant dashboard
@@ -828,7 +828,7 @@ I can only add/edit/update and enable/disable my own items
 ```
 
 ```
-60. [ ] done
+60. [X] done
 
 As a registered user (who is not an admin, but may be a merchant)
 I can only view my own dashboard

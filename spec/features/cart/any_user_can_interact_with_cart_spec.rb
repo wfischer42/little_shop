@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'any user can interact with a cart' do
-
+  include ActionView::Helpers::NumberHelper
   before(:each) do
     @item, @item_2 = create_list(:item, 2)
     @item.inventory_count = 4
@@ -40,7 +40,7 @@ describe 'any user can interact with a cart' do
     end
     expect(page).to have_content("Cart = 3")
     grand_total = (@item_2.price) + (@item.price * 2)
-    expect(page).to have_content("Grand Total: $#{grand_total}")
+    expect(page).to have_content("Grand Total: #{number_to_currency(grand_total)}")
 
     click_on "Empty Cart"
 

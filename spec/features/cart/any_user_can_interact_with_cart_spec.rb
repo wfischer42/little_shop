@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe 'any user can interact with a cart' do
-include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::NumberHelper
+
   before(:each) do
     @item, @item_2 = create_list(:item, 2)
     @item.inventory_count = 4

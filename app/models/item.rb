@@ -16,4 +16,8 @@ class Item < ApplicationRecord
     .order('sum desc')
     .limit(5)
   end
+
+  def order_quantity(order)
+    order_items.where(order_id: order.id).pluck(:item_quantity).last
+  end
 end

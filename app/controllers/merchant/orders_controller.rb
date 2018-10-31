@@ -5,7 +5,9 @@ class Merchant::OrdersController < Merchant::BaseController
   end
 
   def show
+    @merc = User.find(current_user.id)
     @order = Order.find(params[:id])
-  end
+    @items = @order.items.where(user_id: @merc.id)
 
+  end
 end

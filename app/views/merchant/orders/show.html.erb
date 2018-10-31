@@ -1,1 +1,17 @@
 <%= render partial: 'partial/order_info', order: @order %>
+
+<div class="items_info">
+  <% @items.each do |item| %>
+    <ul>
+      <li> <%= link_to "#{item.name}", item_path(item)  %></li>
+      <li><div class="img_box_i">
+        <%= link_to item_path(item) do %>
+          <img src="<%= item.img_url%>" alt="Item_image">
+        <% end %>
+      </div></li>
+      <li>Price: <%= number_to_currency(item.price) %></li>
+      <li>Item Quantity: <%= item.order_quantity(@order) %></li>
+    </ul>
+  <% end  %>
+
+</div>

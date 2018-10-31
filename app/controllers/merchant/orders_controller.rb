@@ -12,6 +12,6 @@ class Merchant::OrdersController < Merchant::BaseController
   def cancel
     Order.find(params[:order_id]).update(status: :canceled)
     @orders = Order.all
-    render :index
+    render :show
   end
 end

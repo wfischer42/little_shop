@@ -23,7 +23,7 @@ describe 'User order management' do
   describe 'show page for user' do
     context 'order details block' do
       subject { page.find("#order-#{order.id}-info") }
-      it { is_expected.to have_content "Order ##{order.id}" }
+      it { is_expected.to have_content "Order #{order.id}" }
       it { is_expected.to have_content "Date ordered: #{order.created_at}" }
       it { is_expected.to have_content "Last updated: #{order.updated_at}" }
       it { is_expected.to have_content "Order Size: #{order.unit_quantity} units" }
@@ -41,7 +41,7 @@ describe 'User order management' do
     end
   end
   describe 'page after clicking order-id link' do
-    subject {click_on "Order ##{order.id}"; page}
+    subject {click_on "Order #{order.id}"; page}
     it { is_expected.to have_current_path(profile_order_path(order))}
   end
 end

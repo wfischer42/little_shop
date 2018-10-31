@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   def cancel
     Order.find(params[:order_id]).update(status: :canceled)
     @orders = current_user.orders
-    render :index
+    render :show
   end
 
   def show

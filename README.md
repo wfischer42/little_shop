@@ -713,7 +713,7 @@ Each order will show the following information:
 ```
 
 ```
-51. [ ] done
+51. [X] done
 
 As a merchant
 When I visit my merchant orders page

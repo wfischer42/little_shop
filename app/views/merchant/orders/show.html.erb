@@ -1,7 +1,8 @@
 <%= render partial: 'partial/order_info', order: @order %>
 
 <div class="items_info">
-  <% @items.each do |item| %>
+  <% @order_items.each do |order_item| %>
+  <% item = order_item.item %>
     <ul>
       <li> <%= link_to "#{item.name}", item_path(item)  %></li>
       <li><div class="img_box_i">
@@ -11,13 +12,20 @@
       </div></li>
       <li>Price: <%= number_to_currency(item.price) %></li>
       <li>Item Quantity: <%= item.order_quantity(@order) %></li>
-      <%= button_to "Fulfill", { controller: 'merchant/order_items',
-                                  action: 'update',
-                                  attribute: 'fulfilled',
-                                  item_id: item.id,
-                                  order_id: @order.id},
-                                  method: :patch,
-                                  data: { confirm: 'Are you sure?'} %>
+      <% if item.inventory_count >= order_item.item_quantity  %>
+        <% unless order_item.fulfilled?  %>
+          <%= button_to "Fulfill", { controller: 'merchant/order_items',
+                                    action: 'update',
+                                    attribute: 'fulfilled',
+                                    item_id: item.id,
+                                    order_id: @order.id,
+                                    order_item_id: order_item},
+                                    method: :patch,
+                                    data: { confirm: 'Are you sure?'} %>
+        <% end %>
+      <% else  %>
+        <p class="big_red">Not enough inventory to fulfill this item </p>
+      <% end %>
     </ul>
   <% end  %>
 

@@ -13,11 +13,11 @@
   <br>
   <%= f.label :price %>
   <br>
-  <%= f.number_field :price, min: '0' %>
+  <%= f.number_field :price, min: "0.01", step: ".01", placeholder: ".01" %>
   <br>
   <%= f.label :inventory_count %>
   <br>
-  <%= f.number_field :inventory_count, min: '0' %>
+  <%= f.number_field :inventory_count, min: '1' %>
   <br>
   <%= f.submit %>
 <% end  %>

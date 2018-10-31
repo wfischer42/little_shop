@@ -44,8 +44,8 @@ class Merchant::ItemsController < Merchant::BaseController
         flash[:success] = "Item Updated"
         redirect_to merchant_items_path
       else
-        flash[:notice] = "Error"
-        render :edit
+        flash[:notice] = "Error, missing field. Please try again"
+        redirect_to edit_merchant_item_path(item)
       end
     end
   end
@@ -54,6 +54,6 @@ class Merchant::ItemsController < Merchant::BaseController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :img_url, :price, :inventory_count)
+    params.require(:item).permit(:name, :description, :price, :inventory_count)
   end
 end

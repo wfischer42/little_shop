@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :merchants, only: [:show, :edit, :update] do
       patch '/downgrade', to: 'merchants#downgrade'
       resources :orders, only: [:index]
-      resources :items, only: [:index]
+      resources :items, only: [:index, :show, :update, :new, :create, :edit]
     end
     resources :users, only: [:index, :show, :edit, :update] do
       patch '/upgrade', to: 'users#downgrade'

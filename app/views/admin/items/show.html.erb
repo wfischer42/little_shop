@@ -1,0 +1,29 @@
+  <% if @display == "edit" %>
+    <h1>Edit <%=@merchant.name%>'s Item</h1>
+    <% @url = admin_merchant_item_path(@merchant.id, @item.id) %>
+    <%=render partial: 'merchant/items/form', url: @url %>
+  <% else %>
+    <div class="flex-container">
+      <div style="flex-grow: 1">
+        <div class="item-img">
+          <img src="<%= @item.img_url %>", class="pic">
+        </div>
+      </div>
+      <div style="flex-grow: 4">
+        <%=@item.name%>
+        <br>
+        Price: $<%= @item.price %>
+        <br>
+        Inventory Count: <%= @item.inventory_count %>
+      </div>
+    </div>
+
+    <div class="flex-container">
+      <div style="flex-grow: 1">
+        Description: <%= @item.description %>
+        <br>
+        Sold By: <%= @merchant.name %>
+        <%= button_to "Add to Cart", cart_items_path(item_id: @item.id)%>
+      </div>
+    </div>
+  <%end%>

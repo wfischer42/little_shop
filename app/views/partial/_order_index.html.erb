@@ -4,14 +4,23 @@
       <th>Order Id:</th>
       <th>Created At:</th>
       <th>Updated At:</th>
+      <th>Total:</th>
+      <th>Number of Items:</th>
       <th>Order Status:</th>
+
       <th></th>
     </tr>
     <% @orders.each do |order| %>
     <tr id="order-<%= order.id %>-info">
-      <td><%= link_to "#{order.id}", merchant_order_path(order) %></td>
+      <% if current_merchant? %>
+        <td><%= link_to "#{order.id}", merchant_order_path(order) %></td>
+      <% else %>
+        <td><%= link_to "#{order.id}", profile_order_path(order) %></td>
+      <% end %>
       <td><%= order.created_at.strftime("%m-%d-%Y") %></td>
       <td><%= order.updated_at.strftime("%m-%d-%Y") %></td>
+      <td><%= number_to_currency(order.grand_total) %></td>
+      <td><%= order.unit_quantity %></td>
       <td><%= order.status %></td>
       <td><% if order.pending? %>
             <% if current_admin? %>

@@ -1,0 +1,4 @@
+<h1>Add New Item for <%=@merchant.name%> </h1>
+  <% @url = admin_merchant_items_path(@merchant) %>
+  <% @item = @new_item %>
+  <%=render partial: 'merchant/items/form', url: @url %>

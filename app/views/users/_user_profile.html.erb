@@ -26,6 +26,7 @@
                     id: @user.id },
                     method: :patch,
                     data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Edit Items', admin_merchant_items_path(@user) %>
             <%elsif @user.customer? %>
               <%=button_to 'Upgrade Account',
                                       { controller: @controller,

@@ -1,0 +1,40 @@
+<h1> <%= @merchant.name%>'s Items </h1>
+<%= link_to "Add New Item", new_admin_merchant_item_path(@merchant) %>
+<div class="all_stuff">
+<% @items.each do |item| %>
+  <div id="card<%= item.id %>" class="card">
+    <div class ="card_container">
+      <div class="card_img">
+          <div class="img_box">
+          <%=link_to item_path(item) do %>
+            <img src="<%= item.img_url %>" alt="item_img">
+          <%end%>
+        </div>
+      </div>
+      <div class="card_info">
+        <p>Item: <%= link_to "#{item.name}", item_path(item) %></p>
+        <p>Item Id: <%= item.id %></p>
+        <p>Merchant: <%= item.merchant.name %></p>
+        <p>Inventory Count: <%= item.inventory_count %></p>
+        <p>Price: <%= number_to_currency(item.price) %></p>
+          <% if item.active? %>
+            <%=button_to 'Disable', { controller: 'admin/items',
+                                      action: 'update',
+                                      attribute: 'active',
+                                      id: item.id },
+                                      method: :patch,
+                                      data: { confirm: 'Are you sure?' } %>
+          <% else %>
+            <%= button_to 'Enable', { controller: 'admin/items',
+                                      action: 'update',
+                                      attribute: 'active',
+                                      id: item.id },
+                                      method: :patch,
+                                      data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <p><%= link_to "Edit Item", admin_merchant_item_path(@merchant.id, item.id, html_options = {display: "edit"}) %></p>
+      </div>
+    </div>
+  </div>
+<%end%>
+</div>

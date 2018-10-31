@@ -24,23 +24,7 @@
           <p>Merchant: <%= card.merchant.name %></p>
           <p>Inventory Count: <%= card.inventory_count %></p>
           <p>Price: <%= number_to_currency(card.price) %></p>
-          <% if current_admin? %>
-            <% if card.active? %>
-              <%=button_to 'Disable', { controller: 'admin/items',
-                                        action: 'update',
-                                        attribute: 'active',
-                                        id: card.id },
-                                        method: :patch,
-                                        data: { confirm: 'Are you sure?' } %>
-            <% else %>
-              <%= button_to 'Enable', { controller: 'admin/items',
-                                        action: 'update',
-                                        attribute: 'active',
-                                        id: card.id },
-                                        method: :patch,
-                                        data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          <% end %>
+
         </div>
 
       </div>

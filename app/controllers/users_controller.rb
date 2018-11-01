@@ -53,6 +53,25 @@ class UsersController < ApplicationController
       @biggest_spenders = User.biggest_spenders
       @largest_orders = Order.highest_order_quantities
       @top_selling_merchants = User.top_selling_merchants
+    elsif current_merchant?
+      @total_sold = current_user.total_items_sold
+      denom = (@total_sold + current_user.total_inventory)
+      if denom > 0
+        @pct_inventory = (@total_sold.to_f * 100) / denom
+      else
+        @pct_inventory = 0
+      end
+      @top_states = current_user.top_states
+      @top_cities = current_user.top_cities
+      @top_customers = current_user.top_customers
+      @most_active_customer = current_user.most_active_customer || "No customers yet!"
+      if largest_order = current_user.largest_order
+        @largest_order = largest_order.id
+      else
+        @largest_order = "No orders yet!"
+      end
+    else
+
     end
   end
 

@@ -1,44 +1,79 @@
 <h1>My Dashboard</h1>
 
-<h2>Stats</h2>
-
 <% if current_admin? %>
-<div class="top_3_states">
-  <p>Top 3 states where orders were shipped:
-    <ul><%@top_3_states.each do |order_item|%>
-    <li><%=order_item.state%></li>
-    <%end%></ul>
-  </p></div>
-  <div class="top_3_cities">
-  <p>Top 3 cities in each state where orders were shipped:
-    <ul><%@top_3_cities.each do |order_item|%>
-    <li><%=order_item.city%></li>
-    <%end%></ul>
-  </p></div>
-  <div class="top_3_spenders">
-  <p>Top 3 most active users by largest total order spending:
-    <ul><%@biggest_spenders.each do |spender|%>
-    <li><%=spender.name%></li>
-    <%end%></ul>
-  </p></div>
-  <div class="top_3_orders_quantity">
-  <p>Top 3 orders by quantity of items:
-    <ul><%@largest_orders.each do |order|%>
-    <li>Order ID: <%=order.id%></li>
-    <%end%></ul></p></div>
-    <div class="top_3_selling_merchants">
-  <p>Top 3 selling merchants:
-    <ul><%@top_selling_merchants.each do |merchant|%>
-    <li><%=merchant.name%></li>
-    <%end%></ul></p></div>
+  <%= link_to "View All Orders", admin_orders_path %>
+  <h2>Stats</h2>
+  <div class="top_3_states">
+    <p>Top 3 states where orders were shipped:
+      <ul><%@top_3_states.each do |order_item|%>
+      <li><%=order_item.state%></li>
+      <%end%></ul>
+    </p></div>
+    <div class="top_3_cities">
+    <p>Top 3 cities in each state where orders were shipped:
+      <ul><%@top_3_cities.each do |order_item|%>
+      <li><%=order_item.city%></li>
+      <%end%></ul>
+    </p></div>
+    <div class="top_3_spenders">
+    <p>Top 3 most active users by largest total order spending:
+      <ul><%@biggest_spenders.each do |spender|%>
+      <li><%=spender.name%></li>
+      <%end%></ul>
+    </p></div>
+    <div class="top_3_orders_quantity">
+    <p>Top 3 orders by quantity of items:
+      <ul><%@largest_orders.each do |order|%>
+      <li>Order ID: <%=order.id%></li>
+      <%end%></ul></p></div>
+      <div class="top_3_selling_merchants">
+    <p>Top 3 selling merchants:
+      <ul><%@top_selling_merchants.each do |merchant|%>
+        <li><%=merchant.name%></li>
+          <%end%>
+      </ul>
+    </p>
+  </div>
 <% end %>
 
-<%= link_to "My Items", merchant_items_path %>
-<br>
-<% if current_admin? %>
-  <%= link_to "All Orders", admin_orders_path %>
+<% if current_merchant? %>
+  <%= link_to "View My Items", merchant_items_path %>
   <br>
+  <% if !@order_is_empty %>
+    <%= link_to "Orders From Store", merchant_orders_path %>
+  <% end  %>
+    <% if current_user.largest_order %>
+      <h2>Stats</h2>
+      <%= "Total items sold: #{@total_sold}" %>
+      <br />
+      <%= "Percent against inventory: #{number_to_percentage(@pct_inventory,
+        precision: 1)}" %>
+      <div class="top_3_states">
+        <h5>Top States</h5>
+        <ul>
+          <% @top_states.each do |state| %>
+            <li class="li"><%= state[0] %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="top_3_cities">
+        <h5>Top Cities</h5>
+        <ul>
+          <% @top_cities.each do |city| %>
+            <li class="li"><%= city[0] %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="top_3_customers">
+        <h5>Top Customers</h5>
+        <ul>
+          <% @top_customers.each do |customer| %>
+            <li class="li"><%= customer[0] %></li>
+          <% end %>
+        </ul>
+      </div>
+    <%= "Most active customer who has purchased from your store: #{@most_active_customer[0][0]}" %>
+    <br />
+    <%= "Largest order from store: #{@largest_order} units" %>
+  <% end %>
 <% end %>
-<% if !@order_is_empty %>
-  <%= link_to "Orders From Store", merchant_orders_path %>
-<% end  %>

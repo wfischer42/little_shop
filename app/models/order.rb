@@ -23,6 +23,16 @@ class Order < ApplicationRecord
     order_items.pluck('sum(item_quantity)').first
   end
 
+  def self.largest_order_from(merchant)
+    select('orders.id, sum(order_items.item_quantity)')
+    .joins(order_items: :item)
+    .where(order_items: {fulfilled: true},
+           items:       {merchant: merchant})
+    .group('orders.id')
+    .order('sum desc').limit(1)
+    .first
+  end
+
   def self.highest_order_quantities
     select('orders.id, sum(order_items.item_quantity) as total_quantity').joins(:order_items).where('order_items.fulfilled = true').group('orders.id').order('total_quantity desc').limit(3)
   end

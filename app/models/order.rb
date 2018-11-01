@@ -33,6 +33,11 @@ class Order < ApplicationRecord
     .first
   end
 
+  def fulfill_if_shipped
+    unfulfilled_items = order_items.where(fulfilled: false).count
+    update(status: :fulfilled) if unfulfilled_items == 0
+  end
+
   def self.highest_order_quantities
     select('orders.id, sum(order_items.item_quantity) as total_quantity').joins(:order_items).where('order_items.fulfilled = true').group('orders.id').order('total_quantity desc').limit(3)
   end

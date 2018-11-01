@@ -47,6 +47,13 @@ class UsersController < ApplicationController
   def dashboard
     @user = User.find(current_user.id)
     @order_is_empty = @user.merchant_orders.empty?
+    if current_admin?
+      @top_3_states = OrderItem.top_states
+      @top_3_cities = OrderItem.top_cities
+      @biggest_spenders = User.biggest_spenders
+      @largest_orders = Order.highest_order_quantities
+      @top_selling_merchants = User.top_selling_merchants
+    end
   end
 
   private

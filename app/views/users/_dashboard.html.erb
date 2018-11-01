@@ -1,5 +1,38 @@
 <h1>My Dashboard</h1>
 
+<h2>Stats</h2>
+
+<% if current_admin? %>
+<div class="top_3_states">
+  <p>Top 3 states where orders were shipped:
+    <ul><%@top_3_states.each do |order_item|%>
+    <li><%=order_item.state%></li>
+    <%end%></ul>
+  </p></div>
+  <div class="top_3_cities">
+  <p>Top 3 cities in each state where orders were shipped:
+    <ul><%@top_3_cities.each do |order_item|%>
+    <li><%=order_item.city%></li>
+    <%end%></ul>
+  </p></div>
+  <div class="top_3_spenders">
+  <p>Top 3 most active users by largest total order spending:
+    <ul><%@biggest_spenders.each do |spender|%>
+    <li><%=spender.name%></li>
+    <%end%></ul>
+  </p></div>
+  <div class="top_3_orders_quantity">
+  <p>Top 3 orders by quantity of items:
+    <ul><%@largest_orders.each do |order|%>
+    <li>Order ID: <%=order.id%></li>
+    <%end%></ul></p></div>
+    <div class="top_3_selling_merchants">
+  <p>Top 3 selling merchants:
+    <ul><%@top_selling_merchants.each do |merchant|%>
+    <li><%=merchant.name%></li>
+    <%end%></ul></p></div>
+<% end %>
+
 <%= link_to "My Items", merchant_items_path %>
 <br>
 <% if current_admin? %>

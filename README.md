@@ -260,7 +260,7 @@ Except I am returned to the show page path of "/users/5" when I am finished
 ```
 
 ```
-15. [ ] done
+15. [X] done
 
 As an admin user
 When I visit a user's profile page
@@ -382,7 +382,7 @@ Except I am returned to the show page path of "/merchants/6" when I am finished
 ```
 
 ```
-26. [ ] done
+26. [X] done
 
 As an admin user
 When I visit a merchant's dashboard page
@@ -553,7 +553,7 @@ All fields are re-populated with my previous data
 ```
 
 ```
-39. [ ] done
+39. [X] done
 
 As an admin user
 When I visit a merchant's profile page
@@ -722,7 +722,7 @@ I am taken to that order's show page ("/orders/12")
 ```
 
 ```
-52. [ ] done
+52. [X] done
 
 As a merchant
 When I visit an order show page
@@ -748,14 +748,14 @@ Instead I see a big red notice next to the item indicating I cannot fulfill this
 ```
 
 ```
-53. [ ] done
+53. [X] done
 
 When all items in an order have been "fulfilled" by their merchants
 The order status changes from "pending" to "complete"
 ```
 
 ```
-54. [ ]  done
+54. [X]  done
 
 As an admin
 When I visit the orders index page ("/orders")
@@ -770,7 +770,7 @@ Admins cannot reset an order back to pending or completed states
 ### Statistics
 
 ```
-55. [ ] done
+55. [X] done
 
 As a merchant
 When I visit my dashboard, I see an area with statistics:
@@ -784,7 +784,7 @@ When I visit my dashboard, I see an area with statistics:
 ```
 
 ```
-56. [ ] done
+56. [X] done
 
 As an admin user
 When I visit my dashboard, I see an area with statistics:
@@ -796,7 +796,7 @@ When I visit my dashboard, I see an area with statistics:
 ```
 
 ```
-57. [ ] done
+57. [X] done
 
 As a registered user, merchant, or admin
 When I visit the items index page ("/items")

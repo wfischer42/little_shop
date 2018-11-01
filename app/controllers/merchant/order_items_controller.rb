@@ -8,6 +8,7 @@ class Merchant::OrderItemsController < Merchant::BaseController
     @item.update!(inventory_count: sustract)
     @order_item.update(fulfilled: true)
     flash[:notice] = "Item Fulfilled"
+    order.fulfill_if_shipped
     redirect_to merchant_order_path(order)
   end
 

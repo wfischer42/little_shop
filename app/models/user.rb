@@ -15,6 +15,10 @@ class User < ApplicationRecord
 
   enum role: [:customer, :merchant, :admin]
 
+  def total_items_sold
+    items.joins(:order_items).where('order_items.fulfilled = true').sum('order_items.item_quantity')
+  end
+
   def self.most_popular_merchants
     select('users.*, sum(order_items.item_quantity) as total_orders')
     .joins(items: :order_items)
